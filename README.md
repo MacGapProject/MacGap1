@@ -6,7 +6,10 @@ The MacGap project aims to provide HTML/JS/CSS developers an Xcode project for d
 
 To build, make sure you have installed the latest Mac OSX Core Library. Download at [http://developer.apple.com/](http://developer.apple.com/).
 
-Alternatively use the [macgap generator](http://github.com/maccman/maccman-rb).
+Alternatively use the [macgap generator](http://github.com/maccman/macgap-rb).
+
+    gem install macgap    
+    macgap --name MyApp --output ./build ./public
 
 ##Usage
 
