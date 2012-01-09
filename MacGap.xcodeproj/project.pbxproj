@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA32509D14BA813600BF0781 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32509C14BA813600BF0781 /* WebKit.framework */; };
+		FA3250C314BA85E700BF0781 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250BC14BA85E700BF0781 /* ContentView.m */; };
+		FA3250C514BA85E700BF0781 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250BE14BA85E700BF0781 /* Utils.m */; };
+		FA3250C714BA85E700BF0781 /* WebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250C014BA85E700BF0781 /* WebViewDelegate.m */; };
+		FA3250D314BA860800BF0781 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250C914BA860800BF0781 /* App.m */; };
+		FA3250D514BA860800BF0781 /* Dock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250CB14BA860800BF0781 /* Dock.m */; };
+		FA3250D714BA860800BF0781 /* Growl.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250CD14BA860800BF0781 /* Growl.m */; };
+		FA3250D914BA860800BF0781 /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250CF14BA860800BF0781 /* Path.m */; };
+		FA3250DB14BA860800BF0781 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250D114BA860800BF0781 /* Sound.m */; };
+		FA3250DC14BA875600BF0781 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32509E14BA816E00BF0781 /* Growl.framework */; };
+		FA3250DF14BA878D00BF0781 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA3250DE14BA878D00BF0781 /* Growl.framework */; };
+		FA3250E514BA883A00BF0781 /* public in Resources */ = {isa = PBXBuildFile; fileRef = FA3250E414BA883A00BF0781 /* public */; };
+		FA3250E714BA8BCE00BF0781 /* application.icns in Resources */ = {isa = PBXBuildFile; fileRef = FA3250E614BA8BCE00BF0781 /* application.icns */; };
+		FAE451BF14BA79C600190544 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE451BE14BA79C600190544 /* Cocoa.framework */; };
+		FAE451C914BA79C600190544 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAE451C714BA79C600190544 /* InfoPlist.strings */; };
+		FAE451CB14BA79C600190544 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE451CA14BA79C600190544 /* main.m */; };
+		FAE451CF14BA79C600190544 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FAE451CD14BA79C600190544 /* Credits.rtf */; };
+		FAE451D214BA79C600190544 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE451D114BA79C600190544 /* AppDelegate.m */; };
+		FAE451D514BA79C600190544 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE451D314BA79C600190544 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA3250DD14BA876F00BF0781 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FA3250DF14BA878D00BF0781 /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FA32509C14BA813600BF0781 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		FA32509E14BA816E00BF0781 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = MacGap/Growl.framework; sourceTree = "<group>"; };
+		FA3250BA14BA85E700BF0781 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
+		FA3250BB14BA85E700BF0781 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContentView.h; path = Classes/ContentView.h; sourceTree = "<group>"; };
+		FA3250BC14BA85E700BF0781 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ContentView.m; path = Classes/ContentView.m; sourceTree = "<group>"; };
+		FA3250BD14BA85E700BF0781 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
+		FA3250BE14BA85E700BF0781 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Classes/Utils.m; sourceTree = "<group>"; };
+		FA3250BF14BA85E700BF0781 /* WebViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebViewDelegate.h; path = Classes/WebViewDelegate.h; sourceTree = "<group>"; };
+		FA3250C014BA85E700BF0781 /* WebViewDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WebViewDelegate.m; path = Classes/WebViewDelegate.m; sourceTree = "<group>"; };
+		FA3250C814BA860800BF0781 /* App.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = App.h; path = Classes/Commands/App.h; sourceTree = "<group>"; };
+		FA3250C914BA860800BF0781 /* App.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = App.m; path = Classes/Commands/App.m; sourceTree = "<group>"; };
+		FA3250CA14BA860800BF0781 /* Dock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Dock.h; path = Classes/Commands/Dock.h; sourceTree = "<group>"; };
+		FA3250CB14BA860800BF0781 /* Dock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Dock.m; path = Classes/Commands/Dock.m; sourceTree = "<group>"; };
+		FA3250CC14BA860800BF0781 /* Growl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Growl.h; path = Classes/Commands/Growl.h; sourceTree = "<group>"; };
+		FA3250CD14BA860800BF0781 /* Growl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Growl.m; path = Classes/Commands/Growl.m; sourceTree = "<group>"; };
+		FA3250CE14BA860800BF0781 /* Path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Path.h; path = Classes/Commands/Path.h; sourceTree = "<group>"; };
+		FA3250CF14BA860800BF0781 /* Path.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Path.m; path = Classes/Commands/Path.m; sourceTree = "<group>"; };
+		FA3250D014BA860800BF0781 /* Sound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = Classes/Commands/Sound.h; sourceTree = "<group>"; };
+		FA3250D114BA860800BF0781 /* Sound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Sound.m; path = Classes/Commands/Sound.m; sourceTree = "<group>"; };
+		FA3250DE14BA878D00BF0781 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = MacGap/Growl.framework; sourceTree = "<group>"; };
+		FA3250E414BA883A00BF0781 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		FA3250E614BA8BCE00BF0781 /* application.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = application.icns; sourceTree = SOURCE_ROOT; };
+		FAE451BA14BA79C600190544 /* MacGap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacGap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE451BE14BA79C600190544 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		FAE451C114BA79C600190544 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		FAE451C214BA79C600190544 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FAE451C314BA79C600190544 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FAE451C614BA79C600190544 /* MacGap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MacGap-Info.plist"; sourceTree = "<group>"; };
+		FAE451C814BA79C600190544 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FAE451CA14BA79C600190544 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FAE451CC14BA79C600190544 /* MacGap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacGap-Prefix.pch"; sourceTree = "<group>"; };
+		FAE451CE14BA79C600190544 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		FAE451D014BA79C600190544 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FAE451D114BA79C600190544 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FAE451D414BA79C600190544 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAE451B714BA79C600190544 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3250DC14BA875600BF0781 /* Growl.framework in Frameworks */,
+				FA32509D14BA813600BF0781 /* WebKit.framework in Frameworks */,
+				FAE451BF14BA79C600190544 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA3250E014BA87B800BF0781 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA3250E114BA87DD00BF0781 /* Commands */,
+				FA3250BA14BA85E700BF0781 /* Constants.h */,
+				FA3250BB14BA85E700BF0781 /* ContentView.h */,
+				FA3250BC14BA85E700BF0781 /* ContentView.m */,
+				FA3250BF14BA85E700BF0781 /* WebViewDelegate.h */,
+				FA3250C014BA85E700BF0781 /* WebViewDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		FA3250E114BA87DD00BF0781 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				FA3250CA14BA860800BF0781 /* Dock.h */,
+				FA3250CB14BA860800BF0781 /* Dock.m */,
+				FA3250BD14BA85E700BF0781 /* Utils.h */,
+				FA3250BE14BA85E700BF0781 /* Utils.m */,
+				FA3250CC14BA860800BF0781 /* Growl.h */,
+				FA3250CD14BA860800BF0781 /* Growl.m */,
+				FA3250CE14BA860800BF0781 /* Path.h */,
+				FA3250CF14BA860800BF0781 /* Path.m */,
+				FA3250D014BA860800BF0781 /* Sound.h */,
+				FA3250D114BA860800BF0781 /* Sound.m */,
+				FA3250C814BA860800BF0781 /* App.h */,
+				FA3250C914BA860800BF0781 /* App.m */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
+		FAE451AF14BA79C600190544 = {
+			isa = PBXGroup;
+			children = (
+				FA3250E414BA883A00BF0781 /* public */,
+				FAE451C414BA79C600190544 /* MacGap */,
+				FAE451BD14BA79C600190544 /* Frameworks */,
+				FAE451BB14BA79C600190544 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAE451BB14BA79C600190544 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAE451BA14BA79C600190544 /* MacGap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAE451BD14BA79C600190544 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA3250DE14BA878D00BF0781 /* Growl.framework */,
+				FA32509E14BA816E00BF0781 /* Growl.framework */,
+				FA32509C14BA813600BF0781 /* WebKit.framework */,
+				FAE451BE14BA79C600190544 /* Cocoa.framework */,
+				FAE451C014BA79C600190544 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAE451C014BA79C600190544 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAE451C114BA79C600190544 /* AppKit.framework */,
+				FAE451C214BA79C600190544 /* CoreData.framework */,
+				FAE451C314BA79C600190544 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		FAE451C414BA79C600190544 /* MacGap */ = {
+			isa = PBXGroup;
+			children = (
+				FA3250E014BA87B800BF0781 /* Classes */,
+				FAE451D014BA79C600190544 /* AppDelegate.h */,
+				FAE451D114BA79C600190544 /* AppDelegate.m */,
+				FAE451D314BA79C600190544 /* MainMenu.xib */,
+				FAE451C514BA79C600190544 /* Supporting Files */,
+			);
+			path = MacGap;
+			sourceTree = "<group>";
+		};
+		FAE451C514BA79C600190544 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA3250E614BA8BCE00BF0781 /* application.icns */,
+				FAE451C614BA79C600190544 /* MacGap-Info.plist */,
+				FAE451C714BA79C600190544 /* InfoPlist.strings */,
+				FAE451CA14BA79C600190544 /* main.m */,
+				FAE451CC14BA79C600190544 /* MacGap-Prefix.pch */,
+				FAE451CD14BA79C600190544 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAE451B914BA79C600190544 /* MacGap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAE451D814BA79C600190544 /* Build configuration list for PBXNativeTarget "MacGap" */;
+			buildPhases = (
+				FAE451B814BA79C600190544 /* Resources */,
+				FAE451B614BA79C600190544 /* Sources */,
+				FAE451B714BA79C600190544 /* Frameworks */,
+				FA3250DD14BA876F00BF0781 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacGap;
+			productName = MacGap;
+			productReference = FAE451BA14BA79C600190544 /* MacGap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAE451B114BA79C600190544 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Twitter;
+			};
+			buildConfigurationList = FAE451B414BA79C600190544 /* Build configuration list for PBXProject "MacGap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FAE451AF14BA79C600190544;
+			productRefGroup = FAE451BB14BA79C600190544 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAE451B914BA79C600190544 /* MacGap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAE451B814BA79C600190544 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3250E514BA883A00BF0781 /* public in Resources */,
+				FAE451C914BA79C600190544 /* InfoPlist.strings in Resources */,
+				FAE451CF14BA79C600190544 /* Credits.rtf in Resources */,
+				FAE451D514BA79C600190544 /* MainMenu.xib in Resources */,
+				FA3250E714BA8BCE00BF0781 /* application.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAE451B614BA79C600190544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3250D314BA860800BF0781 /* App.m in Sources */,
+				FA3250D514BA860800BF0781 /* Dock.m in Sources */,
+				FA3250D714BA860800BF0781 /* Growl.m in Sources */,
+				FA3250D914BA860800BF0781 /* Path.m in Sources */,
+				FA3250DB14BA860800BF0781 /* Sound.m in Sources */,
+				FA3250C314BA85E700BF0781 /* ContentView.m in Sources */,
+				FA3250C514BA85E700BF0781 /* Utils.m in Sources */,
+				FA3250C714BA85E700BF0781 /* WebViewDelegate.m in Sources */,
+				FAE451CB14BA79C600190544 /* main.m in Sources */,
+				FAE451D214BA79C600190544 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FAE451C714BA79C600190544 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAE451C814BA79C600190544 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FAE451CD14BA79C600190544 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAE451CE14BA79C600190544 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		FAE451D314BA79C600190544 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAE451D414BA79C600190544 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAE451D614BA79C600190544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FAE451D714BA79C600190544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FAE451D914BA79C600190544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MacGap\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacGap/MacGap-Prefix.pch";
+				INFOPLIST_FILE = "MacGap/MacGap-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FAE451DA14BA79C600190544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MacGap\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacGap/MacGap-Prefix.pch";
+				INFOPLIST_FILE = "MacGap/MacGap-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAE451B414BA79C600190544 /* Build configuration list for PBXProject "MacGap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAE451D614BA79C600190544 /* Debug */,
+				FAE451D714BA79C600190544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAE451D814BA79C600190544 /* Build configuration list for PBXNativeTarget "MacGap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAE451D914BA79C600190544 /* Debug */,
+				FAE451DA14BA79C600190544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAE451B114BA79C600190544 /* Project object */;
+}
