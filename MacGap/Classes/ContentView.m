@@ -2,12 +2,25 @@
 #import "WebViewDelegate.h"
 #import "AppDelegate.h"
 
+@interface WebPreferences (WebPreferencesPrivate)
+    - (void)_setLocalStorageDatabasePath:(NSString *)path;
+@end
+
 @implementation ContentView
 
 @synthesize webView, delegate;
 
 - (void) awakeFromNib
 {
+    WebPreferences *webPrefs = [WebPreferences standardPreferences];
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *cappBundleName = [mainBundle objectForInfoDictionaryKey:@"CPBundleName"];
+    NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
+    NSString *savePath = [NSString pathWithComponents:[NSArray arrayWithObjects:applicationSupportFile, cappBundleName, @"LocalStorage", nil]];
+    [webPrefs _setLocalStorageDatabasePath:savePath];
+    [self.webView setPreferences:webPrefs];
+    
+
 	self.delegate = [[WebViewDelegate alloc] init];
 	[self.webView setFrameLoadDelegate:self.delegate];
 	[self.webView setUIDelegate:self.delegate];
@@ -16,6 +29,7 @@
 	[self.webView setPolicyDelegate:self.delegate];	
     [self.webView setDrawsBackground:NO];
     [self.webView setShouldCloseWithWindow:NO];
+
 }
 
 - (void) windowResized:(NSNotification*)notification;

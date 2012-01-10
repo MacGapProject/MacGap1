@@ -21,12 +21,18 @@
     }
   </style>
   
-  <meta http-equiv="refresh" content="5;url=http://postmonk.com">  
+  <meta http-equiv="refresh" content="5;url=http://google.com">  
 </head>
 <body>
   
   <script type="text/javascript" charset="utf-8">
-    macgap.growl.notify({title: "MacGap", content: "Hello World"});
+      setTimeout(function(){
+
+      var lc = window.localStorage['blash'];
+      console.log(lc);
+    window.localStorage['blash'] = '1';
+          console.log(window.localStorage['blash']);
+                 }, 500);
   </script>
   
   <h1>MacGap</h1>
