@@ -22,4 +22,14 @@
     NSBeep();
 }
 
++ (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
+{
+    return NO;
+}
+
++ (BOOL) isKeyExcludedFromWebScript:(const char*)name
+{
+	return YES;
+}
+
 @end
