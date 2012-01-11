@@ -21,12 +21,14 @@
     
     NSURL* fileUrl = [NSURL fileURLWithPath:[[Utils sharedInstance] pathForResource:kStartPage]];
     [self.contentView.webView setMainFrameURL:[fileUrl description]];
+
     
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification {    
     self.contentView.webView.alphaValue = 1.0;
     self.contentView.alphaValue = 1.0;
+    
 }
 
 @end

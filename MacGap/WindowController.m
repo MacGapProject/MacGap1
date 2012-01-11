@@ -16,6 +16,11 @@
     self = [super initWithWindowNibName:@"Window"];
     self.fileUrl = [NSURL fileURLWithPath:[[Utils sharedInstance] pathForResource:url]];
     [self.window setFrame: frame display: YES];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self.contentView 
+                                             selector:@selector(windowResized:) 
+                                                 name:NSWindowDidResizeNotification 
+                                               object:[self window]];
     return self;
 }
 

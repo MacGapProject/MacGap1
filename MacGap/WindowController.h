@@ -15,6 +15,6 @@
 
 - (id) initWithURL:(NSString *) url andFrame: (NSRect) frame;
 @property (retain) NSURL * fileUrl;
-@property (retain, nonatomic) IBOutlet ContentView *contentView;
+@property (strong) IBOutlet ContentView *contentView;
 
 @end
