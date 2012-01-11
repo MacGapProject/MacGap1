@@ -27,7 +27,10 @@
         
         <script type="text/javascript" charset="utf-8">
             macgap.growl.notify({title: 'MacGap', content: 'Second Window'});
-            macgap.app.beep();
+            var id = macgap.window.getId(document.title);
+            console.log(id)
+            macgap.window.resize({id:id,width: 800, height:300})
+            macgap.window.move({id:id, x:200,y:200,})
             </script>
         
         <h1>MacGap Second Window</h1>

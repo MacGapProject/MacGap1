@@ -8,5 +8,8 @@
 
 @property (retain, nonatomic) WindowController *windowController;
 
-- (void) open:(NSDictionary *)properties;
+- (int) getId: (NSString *) title;
+- (int) open:(NSDictionary *)properties;
+- (void) move:(NSDictionary *)properties;
+- (void) resize:(NSDictionary *) properties;
 @end

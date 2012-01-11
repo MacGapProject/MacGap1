@@ -28,7 +28,9 @@
                              [[frame valueForKey:@"y"] doubleValue],
                              [[frame valueForKey:@"width"] doubleValue],
                              [[frame valueForKey:@"height"] doubleValue]);
-    [[[NSApp windows] objectAtIndex:0] setFrame: rect display: YES];
+    NSWindow *window = [NSApp mainWindow];
+    NSArray *windows = [NSApp windows];
+    [[NSApp keyWindow] setFrame: rect display: YES];
 }
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
