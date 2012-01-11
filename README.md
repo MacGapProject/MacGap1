@@ -42,7 +42,7 @@ MacGap exposes an object called `macgap` inside JavaScript. You can use it to al
     // Resize window
     macgap.window.resize({width: 400, height: 200});
 
-    // Move window (Bottom right is x:0 and y:0)
+    // Move window (Bottom left is x:0 and y:0)
     macgap.window.move({x:0, y: 200});
    
     // Path to application
