@@ -22,7 +22,10 @@
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.path == nil) { self.path = [Path new]; }
 	if (self.app == nil) { self.app = [App new]; }
-    if (self.window == nil) { self.window = [Window new]; }
+    if (self.window == nil) { 
+        self.window = [Window new]; 
+        self.window.webView = webView; 
+    }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		88C0646014BDE10A00E4BCE2 /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0645F14BDE10A00E4BCE2 /* Window.m */; };
-		88C0646314BDE7F600E4BCE2 /* index2.html in Resources */ = {isa = PBXBuildFile; fileRef = 88C0646214BDE7F600E4BCE2 /* index2.html */; };
 		88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0646414BDEC5800E4BCE2 /* Window.xib */; };
 		88C0646D14BDF6A600E4BCE2 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0646C14BDF6A600E4BCE2 /* WindowController.m */; };
 		FA32509D14BA813600BF0781 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32509C14BA813600BF0781 /* WebKit.framework */; };
@@ -48,7 +47,6 @@
 /* Begin PBXFileReference section */
 		88C0645E14BDE10A00E4BCE2 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = Classes/Window.h; sourceTree = "<group>"; };
 		88C0645F14BDE10A00E4BCE2 /* Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Window.m; path = Classes/Window.m; sourceTree = "<group>"; };
-		88C0646214BDE7F600E4BCE2 /* index2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index2.html; path = public/index2.html; sourceTree = "<group>"; };
 		88C0646514BDEC5800E4BCE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Window.xib; sourceTree = "<group>"; };
 		88C0646B14BDF6A600E4BCE2 /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		88C0646C14BDF6A600E4BCE2 /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		FAE451AF14BA79C600190544 = {
 			isa = PBXGroup;
 			children = (
-				88C0646214BDE7F600E4BCE2 /* index2.html */,
 				FA3250E414BA883A00BF0781 /* public */,
 				FAE451C414BA79C600190544 /* MacGap */,
 				FAE451BD14BA79C600190544 /* Frameworks */,
@@ -263,7 +260,6 @@
 				FAE451CF14BA79C600190544 /* Credits.rtf in Resources */,
 				FAE451D514BA79C600190544 /* MainMenu.xib in Resources */,
 				FA3250E714BA8BCE00BF0781 /* application.icns in Resources */,
-				88C0646314BDE7F600E4BCE2 /* index2.html in Resources */,
 				88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

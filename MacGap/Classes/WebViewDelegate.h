@@ -17,6 +17,8 @@
     Window* window;
 }
 
+
+
 @property (nonatomic, retain) Sound* sound;
 @property (nonatomic, retain) Dock* dock;
 @property (nonatomic, retain) Growl* growl;

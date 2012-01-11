@@ -22,30 +22,9 @@
     NSBeep();
 }
 
-
-- (void) setWindowFrame: (NSDictionary *)frame{
-    NSRect rect = NSMakeRect([[frame valueForKey:@"x"] doubleValue],
-                             [[frame valueForKey:@"y"] doubleValue],
-                             [[frame valueForKey:@"width"] doubleValue],
-                             [[frame valueForKey:@"height"] doubleValue]);
-    NSWindow *window = [NSApp mainWindow];
-    NSArray *windows = [NSApp windows];
-    [[NSApp keyWindow] setFrame: rect display: YES];
-}
-
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
 {
     return NO;
-}
-
-+ (NSString*) webScriptNameForSelector:(SEL)selector{
-	id	result = nil;
-	
-	if (selector == @selector(setWindowFrame:)) {
-		result = @"setWindowFrame";
-	}
-	
-	return result;
 }
 
 + (BOOL) isKeyExcludedFromWebScript:(const char*)name

@@ -3,23 +3,11 @@
 @implementation Window
 
 
-@synthesize windowController;
+@synthesize windowController, webView;
 
-- (int) getId: (NSString *) title{
-    NSArray *windows = [NSApp windows];
-    NSWindow *window;
-    NSString *t;
-    for (int i=0; i<windows.count; i++) {
-        window = [windows objectAtIndex:i];
-        t = [window title];
-        if ([[window title] isEqualToString:title]) {
-            return i;
-        }
-    }
-    return 0;
-}
 
-- (int) open:(NSDictionary *)properties{
+
+- (void) open:(NSDictionary *)properties{
     double width = [[properties valueForKey:@"width"] doubleValue];
     double height =  [[properties valueForKey:@"height"] doubleValue];
     
@@ -28,24 +16,20 @@
                                                       andFrame:frame];
     [self.windowController showWindow: [NSApplication sharedApplication].delegate];
     [self.windowController.window makeKeyWindow];
-    
-    return (int)[NSApp windows].count - 1;
 }
 
 - (void) move:(NSDictionary *)properties{
-    NSWindow *window = [[NSApp windows] objectAtIndex:[[properties valueForKey:@"id"] intValue]];
-    NSRect frame = window.frame;
+    NSRect frame = [self.webView window].frame;
     frame.origin.x = [[properties valueForKey:@"x"] doubleValue];
     frame.origin.y = [[properties valueForKey:@"y"] doubleValue];
-    [window setFrame:frame display:YES];
+    [[self.webView window] setFrame:frame display:YES];
     
 }
 - (void) resize:(NSDictionary *) properties{
-    NSWindow *window = [[NSApp windows] objectAtIndex:[[properties valueForKey:@"id"] intValue]];
-    NSRect frame = window.frame;
+    NSRect frame = [self.webView window].frame;
     frame.size.width = [[properties valueForKey:@"width"] doubleValue];
     frame.size.height = [[properties valueForKey:@"height"] doubleValue];
-    [window setFrame:frame display:YES];    
+    [[self.webView window] setFrame:frame display:YES];    
 }
 
 
@@ -63,8 +47,6 @@
         result = @"move";
     }else if (selector == @selector(resize:)){
         result = @"resize";
-    }else if (selector == @selector(getId:)){
-        result = @"getId";
     }
 	
 	return result;

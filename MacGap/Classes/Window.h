@@ -7,9 +7,11 @@
 }
 
 @property (retain, nonatomic) WindowController *windowController;
+@property (nonatomic, retain) WebView *webView;
 
-- (int) getId: (NSString *) title;
-- (int) open:(NSDictionary *)properties;
+
+- (void) open:(NSDictionary *)properties;
 - (void) move:(NSDictionary *)properties;
 - (void) resize:(NSDictionary *) properties;
+
 @end
