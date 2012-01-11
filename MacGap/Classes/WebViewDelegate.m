@@ -4,6 +4,7 @@
 #import "Growl.h"
 #import "Path.h"
 #import "App.h"
+#import "Window.h"
 
 @implementation WebViewDelegate
 
@@ -12,6 +13,7 @@
 @synthesize growl;
 @synthesize path;
 @synthesize app;
+@synthesize window;
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
@@ -20,6 +22,7 @@
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.path == nil) { self.path = [Path new]; }
 	if (self.app == nil) { self.app = [App new]; }
+    if (self.window == nil) { self.window = [Window new]; }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }
