@@ -2,9 +2,7 @@
 
 @implementation Window
 
-
 @synthesize windowController, webView;
-
 
 
 - (void) open:(NSDictionary *)properties{

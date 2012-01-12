@@ -8,6 +8,8 @@
 @class App;
 @class Window;
 
+@class WindowController;
+
 @interface WebViewDelegate : NSObject {
 	Sound* sound;
     Dock* dock;
@@ -25,5 +27,7 @@
 @property (nonatomic, retain) Path* path;
 @property (nonatomic, retain) App* app;
 @property (nonatomic, retain) Window* window;
+
+@property (nonatomic, retain) WindowController *requestedWindow;
 
 @end
