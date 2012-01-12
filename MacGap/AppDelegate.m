@@ -25,6 +25,8 @@
     
 }
 
+
+
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification {    
     self.contentView.webView.alphaValue = 1.0;
     self.contentView.alphaValue = 1.0;
