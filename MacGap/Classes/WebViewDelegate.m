@@ -24,8 +24,7 @@
 	if (self.path == nil) { self.path = [Path new]; }
 	if (self.app == nil) { self.app = [App new]; }
     if (self.window == nil) { 
-        self.window = [Window new]; 
-        self.window.webView = webView; 
+        self.window = [[Window alloc] initWithWebView:webView]; 
     }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];

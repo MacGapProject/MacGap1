@@ -17,6 +17,7 @@
 
     
 }
+
 -(BOOL)applicationShouldHandleReopen:(NSApplication*)application
                    hasVisibleWindows:(BOOL)visibleWindows{
     if(!visibleWindows){
@@ -24,7 +25,6 @@
     }
     return YES;
 }
-
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification { 
     NSRect frame = NSMakeRect(0, 0, 800, 600);

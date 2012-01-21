@@ -4,17 +4,19 @@
 @interface WindowController() {
 
 }
--(void) notificationCenter;
-@end
 
+-(void) notificationCenter;
+
+@end
 
 @implementation WindowController
 
-@synthesize  contentView, fileUrl;
+@synthesize  contentView, url;
 
-- (id) initWithURL:(NSString *) url andFrame: (NSRect) frame{
+- (id) initWithURL:(NSString *) relativeURL andFrame: (NSRect) frame{
     self = [super initWithWindowNibName:@"Window"];
-    self.fileUrl = [NSURL fileURLWithPath:[[Utils sharedInstance] pathForResource:url]];
+    self.url = [NSURL URLWithString:relativeURL relativeToURL:[[NSBundle mainBundle] resourceURL]];
+    
     [self.window setFrame: frame display: YES];
     [self notificationCenter];
 
@@ -40,12 +42,13 @@
 {
     [super windowDidLoad];
     
-    if (self.fileUrl != nil) {
-        [self.contentView.webView setMainFrameURL:[self.fileUrl description]];
+    if (self.url != nil) {
+        [self.contentView.webView setMainFrameURL:[self.url absoluteString]];
     }
     
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    // Implement this method to handle any initialization after your 
+    // window controller's window has been loaded from its nib file.
 }
 
 @end

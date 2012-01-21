@@ -4,26 +4,36 @@
 
 @synthesize windowController, webView;
 
+- (id) initWithWebView:(WebView*)view
+{
+    if(self = [super init]) {
+        self.webView = view;
+    }
+    return self;
+}
 
-- (void) open:(NSDictionary *)properties{
-    double width = [[properties valueForKey:@"width"] doubleValue];
+- (void) open:(NSDictionary *)properties
+{
+    double width  = [[properties valueForKey:@"width"] doubleValue];
     double height =  [[properties valueForKey:@"height"] doubleValue];
     
     NSRect frame = NSMakeRect(0, 0, width, height);
-    self.windowController = [[WindowController alloc] initWithURL: [properties valueForKey:@"url"]
-                                                      andFrame:frame];
+    self.windowController = [[WindowController alloc] initWithURL:[properties valueForKey:@"url"] andFrame:frame];
     [self.windowController showWindow: [NSApplication sharedApplication].delegate];
     [self.windowController.window makeKeyWindow];
 }
 
-- (void) move:(NSDictionary *)properties{
+- (void) move:(NSDictionary *)properties
+{
     NSRect frame = [self.webView window].frame;
     frame.origin.x = [[properties valueForKey:@"x"] doubleValue];
     frame.origin.y = [[properties valueForKey:@"y"] doubleValue];
     [[self.webView window] setFrame:frame display:YES];
     
 }
-- (void) resize:(NSDictionary *) properties{
+
+- (void) resize:(NSDictionary *) properties
+{
     NSRect frame = [self.webView window].frame;
     frame.size.width = [[properties valueForKey:@"width"] doubleValue];
     frame.size.height = [[properties valueForKey:@"height"] doubleValue];
