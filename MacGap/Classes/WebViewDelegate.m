@@ -94,6 +94,12 @@
     [requestedWindow showWindow:sender];
 }
 
+- (void)webView:(WebView *)webView decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id < WebPolicyDecisionListener >)listener
+{
+    [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+    [listener ignore];
+}
+
 #pragma mark WebScripting protocol
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
