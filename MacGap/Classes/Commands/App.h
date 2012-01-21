@@ -9,6 +9,5 @@
 - (void) hide;
 - (void) unhide;
 - (void) beep;
-- (void) setWindowFrame: (NSDictionary *)frame;
 
 @end

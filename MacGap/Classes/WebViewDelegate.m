@@ -4,7 +4,8 @@
 #import "Growl.h"
 #import "Path.h"
 #import "App.h"
-
+#import "Window.h"
+#import "WindowController.h"
 @implementation WebViewDelegate
 
 @synthesize sound;
@@ -12,6 +13,8 @@
 @synthesize growl;
 @synthesize path;
 @synthesize app;
+@synthesize window;
+@synthesize requestedWindow;
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
@@ -20,6 +23,10 @@
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.path == nil) { self.path = [Path new]; }
 	if (self.app == nil) { self.app = [App new]; }
+    if (self.window == nil) { 
+        self.window = [Window new]; 
+        self.window.webView = webView; 
+    }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }
@@ -77,6 +84,15 @@
     }
     
     return webViewMenuItems;
+}
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request{
+    requestedWindow = [[WindowController alloc] initWithRequest:request];
+    return requestedWindow.contentView.webView;    
+}
+
+- (void)webViewShow:(WebView *)sender{
+    [requestedWindow showWindow:sender];
 }
 
 #pragma mark WebScripting protocol

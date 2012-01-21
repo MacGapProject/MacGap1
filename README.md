@@ -33,12 +33,18 @@ MacGap exposes an object called `macgap` inside JavaScript. You can use it to al
     // Un-hide application
     macgap.app.unhide();
 
-    // Change application's window size and location
-    macgap.app.setWindowFrame({x:0,y:0,width:100,height:200})
-    
     // System bell
     macgap.app.beep();
 
+    // Open a new window
+    macgap.window.open({url:'public/index2.html', width: 400, height: 300});
+
+    // Resize window
+    macgap.window.resize({width: 400, height: 200});
+
+    // Move window (Bottom left is x:0 and y:0)
+    macgap.window.move({x:0, y: 200});
+   
     // Path to application
     macgap.path.application;
     

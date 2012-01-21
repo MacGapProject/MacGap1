@@ -29,6 +29,8 @@
 	[self.webView setPolicyDelegate:self.delegate];	
     [self.webView setDrawsBackground:NO];
     [self.webView setShouldCloseWithWindow:NO];
+    
+    [self.webView setGroupName:@"MacGap"];
 
 }
 

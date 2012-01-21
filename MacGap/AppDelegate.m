@@ -10,23 +10,31 @@
 
 @implementation AppDelegate
 
-@synthesize window, contentView;
+@synthesize windowController;
 
 - (void) applicationWillFinishLaunching:(NSNotification *)aNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self.contentView 
-                                             selector:@selector(windowResized:) 
-                                                 name:NSWindowDidResizeNotification 
-                                               object:[self window]];
-    
-    NSURL* fileUrl = [NSURL fileURLWithPath:[[Utils sharedInstance] pathForResource:kStartPage]];
-    [self.contentView.webView setMainFrameURL:[fileUrl description]];
+
     
 }
+-(BOOL)applicationShouldHandleReopen:(NSApplication*)application
+                   hasVisibleWindows:(BOOL)visibleWindows{
+    if(!visibleWindows){
+        [self.windowController.window makeKeyAndOrderFront: nil];
+    }
+    return YES;
+}
 
-- (void) applicationDidFinishLaunching:(NSNotification *)aNotification {    
-    self.contentView.webView.alphaValue = 1.0;
-    self.contentView.alphaValue = 1.0;
+
+- (void) applicationDidFinishLaunching:(NSNotification *)aNotification { 
+    NSRect frame = NSMakeRect(0, 0, 800, 600);
+    self.windowController = [[WindowController alloc] initWithURL: kStartPage
+                                                         andFrame:frame];
+    [self.windowController showWindow: [NSApplication sharedApplication].delegate];
+    self.windowController.contentView.webView.alphaValue = 1.0;
+    self.windowController.contentView.alphaValue = 1.0;
+    [self.windowController showWindow:self];
+
 }
 
 @end

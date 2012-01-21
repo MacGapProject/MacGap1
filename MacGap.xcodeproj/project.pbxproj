@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88C0646014BDE10A00E4BCE2 /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0645F14BDE10A00E4BCE2 /* Window.m */; };
+		88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0646414BDEC5800E4BCE2 /* Window.xib */; };
+		88C0646D14BDF6A600E4BCE2 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0646C14BDF6A600E4BCE2 /* WindowController.m */; };
 		FA32509D14BA813600BF0781 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32509C14BA813600BF0781 /* WebKit.framework */; };
 		FA3250C314BA85E700BF0781 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250BC14BA85E700BF0781 /* ContentView.m */; };
 		FA3250C514BA85E700BF0781 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250BE14BA85E700BF0781 /* Utils.m */; };
@@ -42,6 +45,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		88C0645E14BDE10A00E4BCE2 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = Classes/Window.h; sourceTree = "<group>"; };
+		88C0645F14BDE10A00E4BCE2 /* Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Window.m; path = Classes/Window.m; sourceTree = "<group>"; };
+		88C0646514BDEC5800E4BCE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Window.xib; sourceTree = "<group>"; };
+		88C0646B14BDF6A600E4BCE2 /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		88C0646C14BDF6A600E4BCE2 /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
 		FA32509C14BA813600BF0781 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FA32509E14BA816E00BF0781 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = MacGap/Growl.framework; sourceTree = "<group>"; };
 		FA3250BA14BA85E700BF0781 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
@@ -102,6 +110,8 @@
 				FA3250BC14BA85E700BF0781 /* ContentView.m */,
 				FA3250BF14BA85E700BF0781 /* WebViewDelegate.h */,
 				FA3250C014BA85E700BF0781 /* WebViewDelegate.m */,
+				88C0646B14BDF6A600E4BCE2 /* WindowController.h */,
+				88C0646C14BDF6A600E4BCE2 /* WindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -121,6 +131,8 @@
 				FA3250D114BA860800BF0781 /* Sound.m */,
 				FA3250C814BA860800BF0781 /* App.h */,
 				FA3250C914BA860800BF0781 /* App.m */,
+				88C0645E14BDE10A00E4BCE2 /* Window.h */,
+				88C0645F14BDE10A00E4BCE2 /* Window.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -172,6 +184,7 @@
 				FAE451D014BA79C600190544 /* AppDelegate.h */,
 				FAE451D114BA79C600190544 /* AppDelegate.m */,
 				FAE451D314BA79C600190544 /* MainMenu.xib */,
+				88C0646414BDEC5800E4BCE2 /* Window.xib */,
 				FAE451C514BA79C600190544 /* Supporting Files */,
 			);
 			path = MacGap;
@@ -247,6 +260,7 @@
 				FAE451CF14BA79C600190544 /* Credits.rtf in Resources */,
 				FAE451D514BA79C600190544 /* MainMenu.xib in Resources */,
 				FA3250E714BA8BCE00BF0781 /* application.icns in Resources */,
+				88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,12 +281,22 @@
 				FA3250C714BA85E700BF0781 /* WebViewDelegate.m in Sources */,
 				FAE451CB14BA79C600190544 /* main.m in Sources */,
 				FAE451D214BA79C600190544 /* AppDelegate.m in Sources */,
+				88C0646014BDE10A00E4BCE2 /* Window.m in Sources */,
+				88C0646D14BDF6A600E4BCE2 /* WindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		88C0646414BDEC5800E4BCE2 /* Window.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88C0646514BDEC5800E4BCE2 /* en */,
+			);
+			name = Window.xib;
+			sourceTree = "<group>";
+		};
 		FAE451C714BA79C600190544 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

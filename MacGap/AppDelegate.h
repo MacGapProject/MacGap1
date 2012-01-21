@@ -9,9 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "Classes/ContentView.h"
 
+#import "WindowController.h"
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (strong) IBOutlet NSWindow *window;
-@property (strong) IBOutlet ContentView *contentView;
+@property (retain, nonatomic) WindowController *windowController;
 
 @end
