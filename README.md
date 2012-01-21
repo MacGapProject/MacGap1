@@ -21,6 +21,8 @@ Just clone the repository and build in Xcode. The file `public/index.html` is lo
 
 MacGap exposes an object called `macgap` inside JavaScript. You can use it to alter the Dock icon and display Growl notifications, amongst other things. The API is documented below:
 
+App:
+
     // Quit application
     macgap.app.terminate();
 
@@ -35,30 +37,46 @@ MacGap exposes an object called `macgap` inside JavaScript. You can use it to al
 
     // System bell
     macgap.app.beep();
+    
+    // Open URL in default browser
+    macgap.app.open("http://google.com");
+    
+    // Launch application
+    macgap.app.launch("TextEdit");
+    
+Window:
 
     // Open a new window
-    macgap.window.open({url:'public/index2.html', width: 400, height: 300});
+    macgap.window.open({url:"public/index2.html", width: 400, height: 300});
 
     // Resize window
     macgap.window.resize({width: 400, height: 200});
 
     // Move window (Bottom left is x:0 and y:0)
     macgap.window.move({x:0, y: 200});
+    
+Path:
    
     // Path to application
     macgap.path.application;
     
     // Path to application's resources
     macgap.path.resource;
+    
+Dock:
 
     // Set the Dock's badge
     macgap.dock.badge = "10";
+    
+Sound:
 
     // Play a sound
     macgap.sound.play("./my/sound.mp3")
     
     // Play a system sound
     macgap.sound.playSystem("funk");
+    
+Growl:
 
     // Send a Growl notification
     macgap.growl.notify({

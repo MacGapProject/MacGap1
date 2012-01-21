@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ContentView.h"
 
-@interface WindowController : NSWindowController{
+@interface WindowController : NSWindowController {
     
 }
 
