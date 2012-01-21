@@ -6,16 +6,10 @@ The MacGap project aims to provide HTML/JS/CSS developers an Xcode project for d
 
 Lion is required to build and run MacGap applications.
 
-To build, make sure you have installed the latest Mac OSX Core Library. Download at [http://developer.apple.com/](http://developer.apple.com/).
-
-Alternatively use the [macgap generator](http://github.com/maccman/macgap-rb).
+Generate apps with the [macgap generator](http://github.com/maccman/macgap-rb), no compile necessary.
 
     gem install macgap    
-    macgap --name MyApp --output ./build ./public
-
-##Usage
-
-Just clone the repository and build in Xcode. The file `public/index.html` is loaded on startup.
+    macgap --name MyApp ./public
 
 ##API
 
@@ -97,3 +91,9 @@ Then use [HTML5 offline APIs](http://www.w3.org/TR/html5/offline.html) to cache 
 ##Attributes
 
 MacGap was forked/ported from Phonegap-mac. It's under the same license (MIT).
+
+##Custom Build
+
+To build, make sure you have installed the latest Mac OSX Core Library. Download at [http://developer.apple.com/](http://developer.apple.com/).
+
+Just clone the repository and build in Xcode. The file `public/index.html` is loaded on startup.
