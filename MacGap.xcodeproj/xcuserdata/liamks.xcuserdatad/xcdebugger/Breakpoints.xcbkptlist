@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348942772.999979"
+         timestampString = "348947710.747279"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "-webView:contextMenuItemsForElement:defaultMenuItems:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348942772.999979"
+         timestampString = "348947710.747279"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
          landmarkName = "-webView:contextMenuItemsForElement:defaultMenuItems:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -70,7 +70,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "30"
          endingLineNumber = "30"
-         landmarkName = "-resize:"
+         landmarkName = "-move:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -84,7 +84,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "28"
          endingLineNumber = "28"
-         landmarkName = "-resize:"
+         landmarkName = "-move:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -107,11 +107,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348942772.999979"
+         timestampString = "348947710.747279"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "-webView:createWebViewWithRequest:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -121,11 +121,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348942772.999979"
+         timestampString = "348947710.747279"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
          landmarkName = "-webViewShow:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -140,8 +140,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "33"
          endingLineNumber = "33"
-         landmarkName = "-notificationCenter"
-         landmarkType = "5">
+         landmarkName = "@implementation WindowController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -163,11 +163,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348941172.531757"
+         timestampString = "348947710.747279"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-webView:runOpenPanelForFileButtonWithResultListener:allowMultipleFiles:"
          landmarkType = "5">
       </FileBreakpoint>

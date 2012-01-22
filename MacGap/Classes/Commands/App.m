@@ -1,6 +1,26 @@
 #import "App.h"
 
+#import "JSEventHelper.h"
+
 @implementation App
+
+@synthesize webView;
+
+- (id) initWithWebView:(WebView *) view{
+    self = [super init];
+    
+    if (self) {
+        self.webView = view;
+        [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self 
+                                                               selector: @selector(receiveSleepNotification:) 
+                                                                   name: NSWorkspaceWillSleepNotification object: NULL];
+        [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self 
+                                                               selector: @selector(receiveWakeNotification:) 
+                                                                   name: NSWorkspaceDidWakeNotification object: NULL];
+    }
+
+    return self;
+}
 
 - (void) terminate {
     [NSApp terminate:nil];
@@ -28,6 +48,14 @@
 
 - (void) launch:(NSString *)name {
     [[NSWorkspace sharedWorkspace] launchApplication:name];
+}
+
+- (void)receiveSleepNotification:(NSNotification*)note{
+    [JSEventHelper triggerEvent:@"sleep" forWebView:self.webView];
+}
+
+- (void) receiveWakeNotification:(NSNotification*)note{
+    [JSEventHelper triggerEvent:@"wake" forWebView:self.webView];
 }
 
 + (NSString*) webScriptNameForSelector:(SEL)selector

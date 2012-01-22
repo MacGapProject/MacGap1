@@ -1,8 +1,14 @@
 #import <Foundation/Foundation.h>
 
+#import "WindowController.h"
+
 @interface App : NSObject {
 
 }
+
+@property (nonatomic, retain) WebView *webView;
+
+- (id) initWithWebView:(WebView *)view;
 
 - (void) terminate;
 - (void) activate;
