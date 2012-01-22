@@ -30,6 +30,20 @@
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }
 
+
+- (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id < WebOpenPanelResultListener >)resultListener allowMultipleFiles:(BOOL)allowMultipleFiles{
+   
+    NSOpenPanel * openDlg = [NSOpenPanel openPanel];
+    
+    [openDlg setCanChooseFiles:YES];
+    [openDlg setCanChooseDirectories:NO];
+    
+    [openDlg beginWithCompletionHandler:^(NSInteger result){
+        NSArray * files = [[openDlg URLs] valueForKey: @"relativePath"];
+        [resultListener chooseFilenames: files]  ;
+    }];
+}
+
 - (void) webView:(WebView*)webView addMessageToConsole:(NSDictionary*)message
 {
 	if (![message isKindOfClass:[NSDictionary class]]) { 
