@@ -22,7 +22,11 @@
 	if (self.dock == nil) { self.dock = [Dock new]; }
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.path == nil) { self.path = [Path new]; }
-	if (self.app == nil) { self.app = [App new]; }
+	
+    if (self.app == nil) { 
+        self.app = [[App alloc] initWithWebView:webView]; 
+    }
+    
     if (self.window == nil) { 
         self.window = [[Window alloc] initWithWebView:webView]; 
     }
