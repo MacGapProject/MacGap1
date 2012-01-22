@@ -81,10 +81,10 @@ Growl:
 Events:
 
     //Mac OS X on wake event.
-    document.addEventListener('wake', function(){console.log('Wake!!')}, true)
+    document.addEventListener('wake', function(){console.log('Wake!!')}, true);
       
     //Mac OS X on sleep event.
-    document.addEventListener('sleep', function(){console.log('Sleep!!')}, true)
+    document.addEventListener('sleep', function(){console.log('Sleep!!')}, true);
     
 ##Offline Patterns
 
