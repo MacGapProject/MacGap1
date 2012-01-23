@@ -4,6 +4,8 @@
 
 @interface WebPreferences (WebPreferencesPrivate)
     - (void)_setLocalStorageDatabasePath:(NSString *)path;
+    - (void) setLocalStorageEnabled: (BOOL) localStorageEnabled;
+    - (void) setDatabasesEnabled:(BOOL)databasesEnabled;
 @end
 
 @implementation ContentView
@@ -13,11 +15,12 @@
 - (void) awakeFromNib
 {
     WebPreferences *webPrefs = [WebPreferences standardPreferences];
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *cappBundleName = [mainBundle objectForInfoDictionaryKey:@"CPBundleName"];
+    NSString *cappBundleName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];    
     NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
     NSString *savePath = [NSString pathWithComponents:[NSArray arrayWithObjects:applicationSupportFile, cappBundleName, @"LocalStorage", nil]];
     [webPrefs _setLocalStorageDatabasePath:savePath];
+    [webPrefs setLocalStorageEnabled:YES];
+    [webPrefs setDatabasesEnabled:YES];
     [self.webView setPreferences:webPrefs];
     
 

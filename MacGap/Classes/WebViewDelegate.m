@@ -69,6 +69,26 @@
     [alert runModal];
 }
 
+/*
+ By default the size of a database is set to 0 [1]. When a database is being created
+ it calls this delegate method to get an increase in quota size - or call an error.
+ PS this method is defined in WebUIDelegatePrivate and may make it difficult, but
+ not impossible [2], to get an app accepted into the mac app store.
+ 
+ Further reading:
+ [1] http://stackoverflow.com/questions/353808/implementing-a-webview-database-quota-delegate
+ [2] http://stackoverflow.com/questions/4527905/how-do-i-enable-local-storage-in-my-webkit-based-application/4608549#4608549
+ */
+- (void)webView:(WebView *)sender frame:(WebFrame *)frame exceededDatabaseQuotaForSecurityOrigin:(id) origin database:(NSString *)databaseIdentifier
+{
+    static const unsigned long long defaultQuota = 5 * 1024 * 1024;
+    if ([origin respondsToSelector: @selector(setQuota:)]) {
+        [origin performSelector:@selector(setQuota:) withObject:[NSNumber numberWithLongLong: defaultQuota]];
+    } else { 
+        NSLog(@"could not increase quota for %@", defaultQuota); 
+    }
+}
+
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems 
 {
     NSMutableArray *webViewMenuItems = [defaultMenuItems mutableCopy];
