@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348947710.747279"
+         timestampString = "349029710.277675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "107"
+         endingLineNumber = "107"
          landmarkName = "-webView:contextMenuItemsForElement:defaultMenuItems:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348947710.747279"
+         timestampString = "349029710.277675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
+         startingLineNumber = "95"
+         endingLineNumber = "95"
          landmarkName = "-webView:contextMenuItemsForElement:defaultMenuItems:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -43,20 +43,6 @@
          startingLineNumber = "21"
          endingLineNumber = "21"
          landmarkName = "-initWithURL:andFrame:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "MacGap/Classes/ContentView.m"
-         timestampString = "347996002.237877"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "19"
-         endingLineNumber = "19"
-         landmarkName = "-awakeFromNib"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -107,11 +93,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348947710.747279"
+         timestampString = "349029710.277675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
          landmarkName = "-webView:createWebViewWithRequest:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -121,11 +107,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/WebViewDelegate.m"
-         timestampString = "348947710.747279"
+         timestampString = "349029710.277675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "113"
-         endingLineNumber = "113"
+         startingLineNumber = "133"
+         endingLineNumber = "133"
          landmarkName = "-webViewShow:"
          landmarkType = "5">
       </FileBreakpoint>
