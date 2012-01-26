@@ -4,7 +4,7 @@ The MacGap project aims to provide HTML/JS/CSS developers an Xcode project for d
  
 ##Pre-requisites
 
-Lion is required to build and run MacGap applications.
+MacGap works on OSX 10.6 and 10.5.
 
 Generate apps with the [macgap generator](http://github.com/maccman/macgap-rb), no compile necessary.
 
