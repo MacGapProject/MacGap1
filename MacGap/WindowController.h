@@ -8,6 +8,6 @@
 - (id) initWithURL:(NSString *) url andFrame: (NSRect) frame;
 - (id) initWithRequest: (NSURLRequest *)request;
 @property (retain) NSURL * url;
-@property (strong) IBOutlet ContentView *contentView;
+@property (retain) IBOutlet ContentView *contentView;
 
 @end
