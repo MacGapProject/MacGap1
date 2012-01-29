@@ -27,6 +27,8 @@
                                           sharedHTTPCookieStorage]; 
     [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     
+    [self.webView setApplicationNameForUserAgent: @"MacGap"];
+    
 
 	self.delegate = [[WebViewDelegate alloc] init];
 	[self.webView setFrameLoadDelegate:self.delegate];
