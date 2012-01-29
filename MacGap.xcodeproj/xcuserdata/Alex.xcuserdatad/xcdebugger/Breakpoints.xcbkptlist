@@ -93,11 +93,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/ContentView.m"
-         timestampString = "349550636.708075"
+         timestampString = "349562075.296308"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
          landmarkName = "-triggerEvent:"
          landmarkType = "5">
       </FileBreakpoint>
