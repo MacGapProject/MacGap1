@@ -5,7 +5,11 @@
 #import "Path.h"
 #import "App.h"
 #import "Window.h"
+#import "File.h"
 #import "WindowController.h"
+
+#define MUTABLE_ARRAY_START_SIZE 10
+
 @implementation WebViewDelegate
 
 @synthesize sound;
@@ -14,6 +18,7 @@
 @synthesize path;
 @synthesize app;
 @synthesize window;
+@synthesize file;
 @synthesize requestedWindow;
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
@@ -30,8 +35,44 @@
     if (self.window == nil) { 
         self.window = [[Window alloc] initWithWebView:webView]; 
     }
+    if (self.file == nil) {
+        self.file = [[File alloc] initWithWebView:webView];
+    }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
+}
+
+
+- (void)webView: (WebView *) sender willPerformDragDestinationAction:(WebDragDestinationAction)action forDraggingInfo:(id<NSDraggingInfo>)draggingInfo{
+    NSString * localHostPrefix = @"file://localhost";
+    NSMutableArray *files = [NSMutableArray arrayWithCapacity:MUTABLE_ARRAY_START_SIZE];
+    if (action == WebDragDestinationActionDHTML) {
+        NSPasteboard *pboard = [draggingInfo draggingPasteboard];
+        
+        if ( [[pboard types] containsObject:NSURLPboardType] ) {
+            //NSURL *fileURL = [NSURL URLFromPasteboard:pboard];
+            NSArray *pbItems = [pboard pasteboardItems];
+            for(NSPasteboardItem *pi in pbItems){
+                NSArray * types = [pi types];
+                NSString *url;
+                for(NSString *t in types){
+                    if ([t hasSuffix:@"url"]) {
+                        url = [pi stringForType:t];
+                        break;
+                    }
+                }
+                
+                if([url hasPrefix:localHostPrefix]){
+                    [files addObject: [url substringFromIndex:[localHostPrefix length]]];
+                }else{
+                    [files addObject: url];
+                }
+            }
+            
+        }
+        
+    }
+    self.file.selectedFiles = files;
 }
 
 
@@ -41,9 +82,11 @@
     
     [openDlg setCanChooseFiles:YES];
     [openDlg setCanChooseDirectories:NO];
+    [openDlg setAllowsMultipleSelection:allowMultipleFiles];
     
     [openDlg beginWithCompletionHandler:^(NSInteger result){
         NSArray * files = [[openDlg URLs] valueForKey: @"relativePath"];
+        self.file.selectedFiles = files;
         [resultListener chooseFilenames: files]  ;
     }];
 }

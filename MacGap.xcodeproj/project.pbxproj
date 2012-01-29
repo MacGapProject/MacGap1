@@ -11,6 +11,7 @@
 		88C0646014BDE10A00E4BCE2 /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0645F14BDE10A00E4BCE2 /* Window.m */; };
 		88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0646414BDEC5800E4BCE2 /* Window.xib */; };
 		88C0646D14BDF6A600E4BCE2 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0646C14BDF6A600E4BCE2 /* WindowController.m */; };
+		88CAD87714D3C6A800B45DB2 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CAD87614D3C6A800B45DB2 /* File.m */; };
 		FA32509D14BA813600BF0781 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32509C14BA813600BF0781 /* WebKit.framework */; };
 		FA3250C314BA85E700BF0781 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250BC14BA85E700BF0781 /* ContentView.m */; };
 		FA3250C514BA85E700BF0781 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250BE14BA85E700BF0781 /* Utils.m */; };
@@ -53,6 +54,8 @@
 		88C0646514BDEC5800E4BCE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Window.xib; sourceTree = "<group>"; };
 		88C0646B14BDF6A600E4BCE2 /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		88C0646C14BDF6A600E4BCE2 /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
+		88CAD87514D3C6A800B45DB2 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = File.h; path = Classes/Commands/File.h; sourceTree = "<group>"; };
+		88CAD87614D3C6A800B45DB2 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = File.m; path = Classes/Commands/File.m; sourceTree = "<group>"; };
 		FA32509C14BA813600BF0781 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FA32509E14BA816E00BF0781 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = MacGap/Growl.framework; sourceTree = "<group>"; };
 		FA3250BA14BA85E700BF0781 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				88C0645F14BDE10A00E4BCE2 /* Window.m */,
 				88746BEC14CCA435001E160E /* JSEventHelper.h */,
 				88746BED14CCA435001E160E /* JSEventHelper.m */,
+				88CAD87514D3C6A800B45DB2 /* File.h */,
+				88CAD87614D3C6A800B45DB2 /* File.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				88C0646014BDE10A00E4BCE2 /* Window.m in Sources */,
 				88C0646D14BDF6A600E4BCE2 /* WindowController.m in Sources */,
 				88746BEE14CCA435001E160E /* JSEventHelper.m in Sources */,
+				88CAD87714D3C6A800B45DB2 /* File.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

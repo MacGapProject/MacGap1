@@ -6,6 +6,7 @@
     - (void)_setLocalStorageDatabasePath:(NSString *)path;
     - (void) setLocalStorageEnabled: (BOOL) localStorageEnabled;
     - (void) setDatabasesEnabled:(BOOL)databasesEnabled;
+    - (void) setDeveloperExtrasEnabled:(BOOL)developerExtrasEnabled;
 @end
 
 @implementation ContentView
@@ -21,6 +22,8 @@
     [webPrefs _setLocalStorageDatabasePath:savePath];
     [webPrefs setLocalStorageEnabled:YES];
     [webPrefs setDatabasesEnabled:YES];
+    [webPrefs setDatabasesEnabled:YES];
+    [webPrefs setDeveloperExtrasEnabled:YES];
     [self.webView setPreferences:webPrefs];
     
 

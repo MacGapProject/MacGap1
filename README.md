@@ -48,6 +48,20 @@ Window:
 
     // Move window (Bottom left is x:0 and y:0)
     macgap.window.move({x:0, y: 200});
+
+File:
+
+    // After a user has selected files from a either `<input type='file'>`, or with drag and drop,
+    // their absolute paths can be obtained with
+    macgap.file.files();
+
+    // Get the file's text
+    macgap.file.readAsText('/path/to/file');
+
+    // Get a Base64 representation of file
+    macgap.file.readAsDataURL('/path/to/file');
+
+    //File event `onerror`, is called if there is a problem opening the file.
     
 Path:
    

@@ -11,6 +11,7 @@
 
 @interface JSEventHelper : NSObject
 
++ (void) triggerEvent:(NSString *) event withExtraJS: (NSString *) extraJS forWebView: (WebView *) webView;
 + (void) triggerEvent:(NSString *) event forWebView: (WebView *) webView;
 
 @end
