@@ -34,7 +34,6 @@
     self.windowController.contentView.webView.alphaValue = 1.0;
     self.windowController.contentView.alphaValue = 1.0;
     [self.windowController showWindow:self];
-
 }
 
 @end

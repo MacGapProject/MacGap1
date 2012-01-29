@@ -23,6 +23,10 @@
     [webPrefs setDatabasesEnabled:YES];
     [self.webView setPreferences:webPrefs];
     
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage 
+                                          sharedHTTPCookieStorage]; 
+    [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+    
 
 	self.delegate = [[WebViewDelegate alloc] init];
 	[self.webView setFrameLoadDelegate:self.delegate];
