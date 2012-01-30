@@ -55,7 +55,9 @@ File:
     // their absolute paths can be obtained with
     macgap.file.files();
 
-    //The following two methods will start reading the contents of a file. On successful completion the 'onload' event will be triggered. That event object will contain the data from the file (event.results).
+    //The following two methods will start reading the contents of a file. 
+    //On successful completion the 'onload' event will be triggered. 
+    //The 'onload' event object will contain the data from the file (event.results).
 
     // Results in String (add  event listener to 'onload' to get results)
     macgap.file.readAsText('/path/to/file');
