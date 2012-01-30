@@ -16,8 +16,8 @@
 @property (nonatomic, retain) WebView *webView;
 - (id) initWithWebView:(WebView *)view;
 -(NSArray *) files;
--(NSString *) readAsText:(NSString *) path;
--(NSString *) readAsDataURL:(NSString *) path;
+-(void) readAsText:(NSString *) path;
+-(void) readAsDataURL:(NSString *) path;
 
 @property (retain) NSArray* selectedFiles;
 @end

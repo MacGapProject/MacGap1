@@ -204,20 +204,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "MacGap/Classes/Commands/File.m"
-         timestampString = "349558091.104003"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
-         landmarkName = "-readAsText:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "MacGap/Classes/JSEventHelper.m"
          timestampString = "349555697.275184"
          startingColumnNumber = "9223372036854775807"
@@ -289,12 +275,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MacGap/Classes/Commands/File.m"
-         timestampString = "349569014.735466"
+         timestampString = "349653100.32652"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
-         landmarkName = "-readAsDataURL:"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "-readAsText:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

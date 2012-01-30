@@ -55,13 +55,23 @@ File:
     // their absolute paths can be obtained with
     macgap.file.files();
 
-    // Get the file's text
+    //The following two methods will start reading the contents of a file. On successful completion the 'onload' event will be triggered. That event object will contain the data from the file (event.results).
+
+    // Results in String (add  event listener to 'onload' to get results)
     macgap.file.readAsText('/path/to/file');
 
-    // Get a Base64 representation of file
+    // Results in Base64 String (add  event listener to 'onload' to get results)
     macgap.file.readAsDataURL('/path/to/file');
 
-    //File event `onerror`, is called if there is a problem opening the file.
+    //Available events: onerror, onload, onloadend, onloadstart
+    //Example:
+
+    var fileContent = function(evt){
+        $("img").src = evt.result;
+    };
+
+    document.addEventListener('onload', fileContent, true);
+    macgap.file.readAsDataURL('/path/to/imag.png');
     
 Path:
    
