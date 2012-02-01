@@ -9,8 +9,10 @@ MacGap works on OSX 10.6 and 10.5.
 Generate apps with the [macgap generator](http://github.com/maccman/macgap-rb), no compile necessary.
 
     gem install macgap    
-    macgap --name MyApp ./public
-
+    
+    macgap new myapp
+    macgap build myapp
+    
 ##API
 
 MacGap exposes an object called `macgap` inside JavaScript. You can use it to alter the Dock icon and display Growl notifications, amongst other things. The API is documented below:
