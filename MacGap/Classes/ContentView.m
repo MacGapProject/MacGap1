@@ -56,7 +56,11 @@
 	NSSize size = [window frame].size;
 	
 	DebugNSLog(@"window width = %f, window height = %f", size.width, size.height);
-	[self.webView setFrame:NSMakeRect(0, 0, size.width, size.height - [[Utils sharedInstance] titleBarHeight:window])];
+    
+    bool isFullScreen = (window.styleMask & NSFullScreenWindowMask) == NSFullScreenWindowMask;
+    int titleBarHeight = isFullScreen ? 0 : [[Utils sharedInstance] titleBarHeight:window];
+    
+	[self.webView setFrame:NSMakeRect(0, 0, size.width, size.height - titleBarHeight)];
     [self triggerEvent:@"orientationchange"];
 }
 
