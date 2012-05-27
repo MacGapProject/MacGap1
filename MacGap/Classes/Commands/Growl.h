@@ -11,5 +11,6 @@
 - (NSString *)applicationNameForGrowl;
 - (NSImage *)applicationIconForGrowl;
 - (NSDictionary *)registrationDictionaryForGrowl;
+- (void) growlNotificationWasClicked:(id)clickContext;
 
 @end
