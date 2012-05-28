@@ -26,7 +26,7 @@
                                    iconData:nil
                                    priority:0
                                    isSticky:false
-                               clickContext:nil];
+                               clickContext:@""];
 }
 
 - (NSString *)applicationNameForGrowl {
@@ -48,6 +48,11 @@
     
 	return ticket;
 }
+
+- (void) growlNotificationWasClicked:(id)clickContext {
+    [NSApp activateIgnoringOtherApps:YES];
+}
+
 
 #pragma mark WebScripting Protocol
 
