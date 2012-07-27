@@ -2,6 +2,7 @@
 #import "Sound.h"
 #import "Dock.h"
 #import "Growl.h"
+#import "Notice.h"
 #import "Path.h"
 #import "App.h"
 #import "Window.h"
@@ -11,6 +12,7 @@
 @synthesize sound;
 @synthesize dock;
 @synthesize growl;
+@synthesize notice;
 @synthesize path;
 @synthesize app;
 @synthesize window;
@@ -21,6 +23,7 @@
 	if (self.sound == nil) { self.sound = [Sound new]; }
 	if (self.dock == nil) { self.dock = [Dock new]; }
 	if (self.growl == nil) { self.growl = [Growl new]; }
+	if (self.notice == nil) { self.notice = [Notice new]; }
 	if (self.path == nil) { self.path = [Path new]; }
 	
     if (self.app == nil) { 
