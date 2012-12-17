@@ -72,6 +72,20 @@
     [alert runModal];
 }
 
+- (BOOL)webView:(WebView *)sender runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    [alert setMessageText:message];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    if ([alert runModal] == NSAlertFirstButtonReturn)
+        return YES;
+    else
+        return NO;
+}
+
 /*
  By default the size of a database is set to 0 [1]. When a database is being created
  it calls this delegate method to get an increase in quota size - or call an error.
