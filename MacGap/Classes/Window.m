@@ -14,11 +14,7 @@
 
 - (void) open:(NSDictionary *)properties
 {
-    double width  = [[properties valueForKey:@"width"] doubleValue];
-    double height =  [[properties valueForKey:@"height"] doubleValue];
-    
-    NSRect frame = NSMakeRect(0, 0, width, height);
-    self.windowController = [[WindowController alloc] initWithURL:[properties valueForKey:@"url"] andFrame:frame];
+    self.windowController = [[WindowController alloc] initWithURL:[properties valueForKey:@"url"]];
     [self.windowController showWindow: [NSApplication sharedApplication].delegate];
     [self.windowController.window makeKeyWindow];
 }
