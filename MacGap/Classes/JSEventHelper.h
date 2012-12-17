@@ -11,6 +11,7 @@
 
 @interface JSEventHelper : NSObject
 
-+ (void) triggerEvent:(NSString *) event forWebView: (WebView *) webView;
++ (void) triggerEvent:(NSString *)event forWebView:(WebView *)webView;
++ (void) triggerEvent:(NSString *)event forObject:(NSString *)objName forWebView:(WebView *)webView;
 
 @end
