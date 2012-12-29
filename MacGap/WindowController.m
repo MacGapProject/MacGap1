@@ -13,11 +13,11 @@
 
 @synthesize  contentView, url;
 
-- (id) initWithURL:(NSString *) relativeURL andFrame: (NSRect) frame{
+- (id) initWithURL:(NSString *) relativeURL{
     self = [super initWithWindowNibName:@"Window"];
     self.url = [NSURL URLWithString:relativeURL relativeToURL:[[NSBundle mainBundle] resourceURL]];
     
-    [self.window setFrame: frame display: YES];
+    [self.window setFrameAutosaveName:@"MacGapWindow"];
     [self notificationCenter];
 
     return self;

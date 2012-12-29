@@ -27,9 +27,7 @@
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification { 
-    NSRect frame = NSMakeRect(0, 0, 800, 600);
-    self.windowController = [[WindowController alloc] initWithURL: kStartPage
-                                                         andFrame:frame];
+    self.windowController = [[WindowController alloc] initWithURL: kStartPage];
     [self.windowController showWindow: [NSApplication sharedApplication].delegate];
     self.windowController.contentView.webView.alphaValue = 1.0;
     self.windowController.contentView.alphaValue = 1.0;
