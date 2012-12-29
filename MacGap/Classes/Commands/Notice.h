@@ -15,6 +15,7 @@
 }
 
 - (void) notify:(NSDictionary*)message;
++ (BOOL) available;
 
 @end
 

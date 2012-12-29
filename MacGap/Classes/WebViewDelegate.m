@@ -23,7 +23,7 @@
 	if (self.sound == nil) { self.sound = [Sound new]; }
 	if (self.dock == nil) { self.dock = [Dock new]; }
 	if (self.growl == nil) { self.growl = [Growl new]; }
-	if (self.notice == nil) { self.notice = [Notice new]; }
+	if (self.notice == nil && [Notice available] == YES) { self.notice = [Notice new]; }
 	if (self.path == nil) { self.path = [Path new]; }
 	
     if (self.app == nil) { 

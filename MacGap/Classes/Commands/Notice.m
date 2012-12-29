@@ -20,6 +20,13 @@
     [center scheduleNotification:notification];
 }
 
++ (BOOL) available {
+    if ([NSUserNotificationCenter respondsToSelector:@selector(defaultUserNotificationCenter)])
+        return YES;
+    
+    return NO;
+}
+
 #pragma mark WebScripting Protocol
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
