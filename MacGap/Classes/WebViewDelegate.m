@@ -102,7 +102,7 @@
     if ([origin respondsToSelector: @selector(setQuota:)]) {
         [origin performSelector:@selector(setQuota:) withObject:[NSNumber numberWithLongLong: defaultQuota]];
     } else { 
-        NSLog(@"could not increase quota for %@", defaultQuota); 
+        NSLog(@"could not increase quota for %lld", defaultQuota); 
     }
 }
 

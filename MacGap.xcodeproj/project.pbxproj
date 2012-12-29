@@ -21,11 +21,11 @@
 		FA3250D714BA860800BF0781 /* Growl.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250CD14BA860800BF0781 /* Growl.m */; };
 		FA3250D914BA860800BF0781 /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250CF14BA860800BF0781 /* Path.m */; };
 		FA3250DB14BA860800BF0781 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3250D114BA860800BF0781 /* Sound.m */; };
-		FA3250DC14BA875600BF0781 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32509E14BA816E00BF0781 /* Growl.framework */; };
 		FA3250DF14BA878D00BF0781 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA3250DE14BA878D00BF0781 /* Growl.framework */; };
 		FA3250E514BA883A00BF0781 /* public in Resources */ = {isa = PBXBuildFile; fileRef = FA3250E414BA883A00BF0781 /* public */; };
 		FA3250E714BA8BCE00BF0781 /* application.icns in Resources */ = {isa = PBXBuildFile; fileRef = FA3250E614BA8BCE00BF0781 /* application.icns */; };
-		FAE451BF14BA79C600190544 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE451BE14BA79C600190544 /* Cocoa.framework */; };
+		FA3F7742168F70790027B324 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3F7741168F70780027B324 /* Cocoa.framework */; };
+		FA3F7743168F70850027B324 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32509E14BA816E00BF0781 /* Growl.framework */; };
 		FAE451C914BA79C600190544 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAE451C714BA79C600190544 /* InfoPlist.strings */; };
 		FAE451CB14BA79C600190544 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE451CA14BA79C600190544 /* main.m */; };
 		FAE451CF14BA79C600190544 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FAE451CD14BA79C600190544 /* Credits.rtf */; };
@@ -78,6 +78,7 @@
 		FA3250DE14BA878D00BF0781 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = MacGap/Growl.framework; sourceTree = "<group>"; };
 		FA3250E414BA883A00BF0781 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
 		FA3250E614BA8BCE00BF0781 /* application.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = application.icns; sourceTree = SOURCE_ROOT; };
+		FA3F7741168F70780027B324 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		FAE451BA14BA79C600190544 /* MacGap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacGap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE451BE14BA79C600190544 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FAE451C114BA79C600190544 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -98,9 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3250DC14BA875600BF0781 /* Growl.framework in Frameworks */,
+				FA3F7743168F70850027B324 /* Growl.framework in Frameworks */,
+				FA3F7742168F70790027B324 /* Cocoa.framework in Frameworks */,
 				FA32509D14BA813600BF0781 /* WebKit.framework in Frameworks */,
-				FAE451BF14BA79C600190544 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +151,7 @@
 		FAE451AF14BA79C600190544 = {
 			isa = PBXGroup;
 			children = (
+				FA3F7741168F70780027B324 /* Cocoa.framework */,
 				FA3250E414BA883A00BF0781 /* public */,
 				FAE451C414BA79C600190544 /* MacGap */,
 				FAE451BD14BA79C600190544 /* Frameworks */,
@@ -240,7 +242,7 @@
 		FAE451B114BA79C600190544 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Twitter;
 			};
 			buildConfigurationList = FAE451B414BA79C600190544 /* Build configuration list for PBXProject "MacGap" */;
@@ -352,12 +354,12 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = "";
 			};
@@ -373,12 +375,12 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = "";
 			};
 			name = Release;
@@ -386,16 +388,20 @@
 		FAE451D914BA79C600190544 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MacGap\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacGap/MacGap-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "MacGap/MacGap-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = "";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -403,16 +409,20 @@
 		FAE451DA14BA79C600190544 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MacGap\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacGap/MacGap-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "MacGap/MacGap-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = "";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
