@@ -1,6 +1,7 @@
 #import "ContentView.h"
 #import "WebViewDelegate.h"
 #import "AppDelegate.h"
+#import "JSEventHelper.h"
 
 @interface WebPreferences (WebPreferencesPrivate)
     - (void)_setLocalStorageDatabasePath:(NSString *)path;
@@ -61,16 +62,7 @@
     int titleBarHeight = isFullScreen ? 0 : [[Utils sharedInstance] titleBarHeight:window];
     
 	[self.webView setFrame:NSMakeRect(0, 0, size.width, size.height - titleBarHeight)];
-    [self triggerEvent:@"orientationchange"];
-}
-
-- (void) triggerEvent:(NSString*)type 
-{
-    NSString* script = [NSString stringWithFormat:@"\
-                        var e = document.createEvent('Events'); \
-                        e.initEvent('%@', true, false); document.dispatchEvent(e);", type];
-    [self.webView stringByEvaluatingJavaScriptFromString:script];
-    
+    [JSEventHelper triggerEvent:@"orientationchange" forWebView:self.webView];
 }
 
 @end
