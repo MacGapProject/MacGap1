@@ -19,6 +19,26 @@
     [self.windowController.window makeKeyWindow];
 }
 
+- (void) minimize {
+    [[NSApp mainWindow] miniaturize:[NSApp mainWindow]];
+}
+
+- (void) toggleFullscreen {
+    [[NSApp mainWindow] toggleFullScreen:[NSApp mainWindow]];
+}
+
+- (void) maximize {
+    CGRect a = [NSApp mainWindow].frame;
+    _oldRestoreFrame = CGRectMake(a.origin.x, a.origin.y, a.size.width, a.size.height);
+    [[NSApp mainWindow] setFrame:[[NSScreen mainScreen] visibleFrame] display:YES];
+}
+
+- (Boolean) isMaximized {
+    NSRect a = [NSApp mainWindow].frame;
+    NSRect b = [[NSScreen mainScreen] visibleFrame];
+    return a.origin.x == b.origin.x && a.origin.y == b.origin.y && a.size.width == b.size.width && a.size.height == b.size.height;
+}
+
 - (void) move:(NSDictionary *)properties
 {
     NSRect frame = [self.webView window].frame;

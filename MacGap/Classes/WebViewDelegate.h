@@ -8,6 +8,7 @@
 @class Path;
 @class App;
 @class Window;
+@class Clipboard;
 
 @class WindowController;
 
@@ -19,6 +20,7 @@
     Path* path;
     App* app;
     Window* window;
+    Clipboard* clipboard;
 }
 
 
@@ -30,6 +32,7 @@
 @property (nonatomic, retain) Path* path;
 @property (nonatomic, retain) App* app;
 @property (nonatomic, retain) Window* window;
+@property (nonatomic, retain) Clipboard* clipboard;
 
 @property (nonatomic, retain) WindowController *requestedWindow;
 

@@ -40,6 +40,14 @@ App:
     // Launch application
     macgap.app.launch("TextEdit");
 
+Clipboard:
+
+    // copy text to clipboard
+    macgap.clipboard.copy('this text will be copied to the clipboard');
+
+    // returns the contents of the clipboard
+    var clipboardContents = macgap.clipboard.paste();
+
 Window:
 
     // Open a new window
@@ -50,6 +58,18 @@ Window:
 
     // Move window (Bottom left is x:0 and y:0)
     macgap.window.move({x:0, y: 200});
+
+    // Toggle fullscreen mode
+    macgap.window.toggleFullscreen();
+
+    // Maximize the window
+    macgap.window.maximize();
+
+    // Minimize the window
+    macgap.window.minimize();
+
+    // Return true if the window is currently maximized and false if it is not
+    var isWindowMaximized = macgap.window.isMaximized();
 
 Path:
 
