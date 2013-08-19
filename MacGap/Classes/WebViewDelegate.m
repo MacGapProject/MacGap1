@@ -7,6 +7,7 @@
 #import "App.h"
 #import "Window.h"
 #import "WindowController.h"
+#import "Clipboard.h"
 @implementation WebViewDelegate
 
 @synthesize sound;
@@ -17,6 +18,7 @@
 @synthesize app;
 @synthesize window;
 @synthesize requestedWindow;
+@synthesize clipboard;
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
@@ -25,6 +27,7 @@
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.notice == nil && [Notice available] == YES) { self.notice = [Notice new]; }
 	if (self.path == nil) { self.path = [Path new]; }
+	if (self.clipboard == nil) { self.clipboard = [Clipboard new]; }
 	
     if (self.app == nil) { 
         self.app = [[App alloc] initWithWebView:webView]; 
