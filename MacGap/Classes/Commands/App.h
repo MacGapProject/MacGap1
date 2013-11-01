@@ -15,5 +15,6 @@
 - (void) hide;
 - (void) unhide;
 - (void) beep;
+- (void) bounce;
 
 @end

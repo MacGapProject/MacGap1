@@ -42,6 +42,10 @@
     NSBeep();
 }
 
+- (void) bounce {
+    [NSApp requestUserAttention:NSInformationalRequest];
+}
+
 - (void) open:(NSString*)url {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }

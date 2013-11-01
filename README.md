@@ -34,6 +34,9 @@ App:
     // System bell
     macgap.app.beep();
 
+    // Bounce Dock icon of applications
+    macgap.app.bounce();
+
     // Open URL in default browser
     macgap.app.open("http://google.com");
 
