@@ -112,6 +112,13 @@ Notice:
       sound: false // optional
     });
 
+    // Send notification and then remove it from notification center
+    macgap.notice.notify({title: "title", content: "conent", id: "id"});
+    macgap.notice.close("id");
+
+    // Remove all notifications send by app
+    macgap.notice.close("*");
+
 Events:
 
     //Mac OS X on wake event.

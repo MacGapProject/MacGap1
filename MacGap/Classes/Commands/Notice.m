@@ -27,8 +27,25 @@
     if (playSound) {
         [notification setSoundName:NSUserNotificationDefaultSoundName];
     }
+    NSString *id = @""; // optional, needed for close
+    @try {
+        id = [message valueForKey:@"id"];
+    }
+    @catch (NSException *exception) {
+    }
+    [notification setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:id, @"id", nil]];
     NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
     [center scheduleNotification:notification];
+}
+
+// close all notifications with id == notificationId or close all notifications if notificationId == "*"
+- (void) close:(NSString*)notificationId {
+    NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
+    for(NSUserNotification * deliveredNote in center.deliveredNotifications) {
+        if ([notificationId isEqualToString:@"*"] || [deliveredNote.userInfo[@"id"] isEqualToString:notificationId]) {
+            [center removeDeliveredNotification: deliveredNote];
+        }
+    }
 }
 
 + (BOOL) available {
@@ -42,10 +59,13 @@
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
 {
+    BOOL result = YES;
     if (selector == @selector(notify:))
-        return NO;
+        result = NO;
+    if (selector == @selector(close:))
+        result = NO;
     
-    return YES;
+    return result;
 }
 
 + (NSString*) webScriptNameForSelector:(SEL)selector
@@ -54,6 +74,9 @@
 	
 	if (selector == @selector(notify:)) {
 		result = @"notify";
+	}
+	if (selector == @selector(close:)) {
+		result = @"close";
 	}
 	
 	return result;

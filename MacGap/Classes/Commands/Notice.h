@@ -15,6 +15,7 @@
 }
 
 - (void) notify:(NSDictionary*)message;
+- (void) close:(NSString*)notificationId;
 + (BOOL) available;
 
 @end
