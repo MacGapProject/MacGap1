@@ -15,7 +15,18 @@
     [notification setTitle:[message valueForKey:@"title"]];
     [notification setInformativeText:[message valueForKey:@"content"]];
     [notification setDeliveryDate:[NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]]];
-    [notification setSoundName:NSUserNotificationDefaultSoundName];
+    BOOL playSound = true; // optional parameter, false only when {sound: false}
+    @try {
+        NSNumber *s = [message valueForKey:@"sound"];
+        if ([[s className] isEqual: @"__NSCFBoolean"]) {
+            playSound = [s boolValue];
+        }
+    }
+    @catch (NSException *exception) {
+    }
+    if (playSound) {
+        [notification setSoundName:NSUserNotificationDefaultSoundName];
+    }
     NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
     [center scheduleNotification:notification];
 }

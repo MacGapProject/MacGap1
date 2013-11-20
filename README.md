@@ -108,7 +108,8 @@ Notice:
     // Send a Native User notification
     macgap.notice.notify({
       title: "Notify",
-      content: "New Message!"
+      content: "New Message!",
+      sound: false // optional
     });
 
 Events:
