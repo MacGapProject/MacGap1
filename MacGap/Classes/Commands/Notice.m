@@ -8,7 +8,18 @@
 
 #import "Notice.h"
 
+#import "JSEventHelper.h"
+
 @implementation Notice
+
+- (id) initWithWebView:(WebView*)view
+{
+    if(self = [super init]) {
+        self.webView = view;
+	    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    }
+    return self;
+}
 
 - (void) notify:(NSDictionary *)message {
     NSUserNotification *notification = [[NSUserNotification alloc] init];
@@ -53,6 +64,12 @@
         return YES;
     
     return NO;
+}
+
+- (void) userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+{
+    NSString *notificationId = [notification.userInfo valueForKey:@"id"];
+    [JSEventHelper triggerEvent:@"macgap.notify.activated" forDetail:notificationId forWebView:self.webView];
 }
 
 #pragma mark WebScripting Protocol

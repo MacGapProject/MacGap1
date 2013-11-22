@@ -13,5 +13,7 @@
 
 + (void) triggerEvent:(NSString *)event forWebView:(WebView *)webView;
 + (void) triggerEvent:(NSString *)event forObject:(NSString *)objName forWebView:(WebView *)webView;
++ (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forWebView:(WebView *)webView;
++ (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forObject:(NSString *)objName forWebView:(WebView *)webView;
 
 @end

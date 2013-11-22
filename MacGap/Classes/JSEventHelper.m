@@ -19,4 +19,13 @@
     [webView stringByEvaluatingJavaScriptFromString:str];
 }
 
++ (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forWebView:(WebView *)webView {
+    [self triggerEvent:event forDetail:detail forObject:@"document" forWebView:webView];
+}
++ (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forObject:(NSString *)objName forWebView:(WebView *)webView {
+    NSString *detailEscaped = [detail stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    NSString *str = [NSString stringWithFormat:@"var e = new CustomEvent('%@', { 'detail': decodeURIComponent(\"%@\") }); %@.dispatchEvent(e); ", event, detailEscaped, objName];
+    [webView stringByEvaluatingJavaScriptFromString:str];
+}
+
 @end

@@ -127,6 +127,9 @@ Events:
     //Mac OS X on sleep event.
     document.addEventListener('sleep', function(){console.log('Sleep!!')}, true);
 
+    // User clicked on Native User notification
+    document.addEventListener('macgap.notify.activated', function(e) {console.log('notified: id = ' + e.detail)}, true);
+
 ##Offline Patterns
 
 Desktop apps load immediately and work offline, whilst web apps have the advantage of being easily updated and remotely managed. MacGap gives you the best of both worlds via HTML5's offline APIs.
