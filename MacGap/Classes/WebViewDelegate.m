@@ -49,8 +49,12 @@
     [openDlg setCanChooseDirectories:NO];
     
     [openDlg beginWithCompletionHandler:^(NSInteger result){
-        NSArray * files = [[openDlg URLs] valueForKey: @"relativePath"];
-        [resultListener chooseFilenames: files]  ;
+        if (result == NSFileHandlingPanelOKButton) {
+            NSArray * files = [[openDlg URLs] valueForKey: @"relativePath"];
+            [resultListener chooseFilenames: files];
+        } else {
+            [resultListener cancel];
+        }
     }];
 }
 
