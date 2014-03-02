@@ -43,6 +43,9 @@ App:
     // Launch application
     macgap.app.launch("TextEdit");
 
+	// Set a custom user agent string
+	macgap.app.setCustomUserAgent('new user agent string');
+	
 Clipboard:
 
     // copy text to clipboard
