@@ -9,6 +9,7 @@
 @class App;
 @class Window;
 @class Clipboard;
+@class Fonts;
 
 @class WindowController;
 
@@ -21,6 +22,7 @@
     App* app;
     Window* window;
     Clipboard* clipboard;
+    Fonts* fonts;
 }
 
 
@@ -33,6 +35,7 @@
 @property (nonatomic, retain) App* app;
 @property (nonatomic, retain) Window* window;
 @property (nonatomic, retain) Clipboard* clipboard;
+@property (nonatomic, retain) Fonts* fonts;
 
 @property (nonatomic, retain) WindowController *requestedWindow;
 

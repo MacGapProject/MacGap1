@@ -8,6 +8,7 @@
 #import "Window.h"
 #import "WindowController.h"
 #import "Clipboard.h"
+#import "Fonts.h"
 @implementation WebViewDelegate
 
 @synthesize sound;
@@ -19,6 +20,7 @@
 @synthesize window;
 @synthesize requestedWindow;
 @synthesize clipboard;
+@synthesize fonts;
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
@@ -28,6 +30,7 @@
 	if (self.notice == nil && [Notice available] == YES) { self.notice = [Notice new]; }
 	if (self.path == nil) { self.path = [Path new]; }
 	if (self.clipboard == nil) { self.clipboard = [Clipboard new]; }
+	if (self.fonts == nil) { self.fonts = [Fonts new]; }
 	
     if (self.app == nil) { 
         self.app = [[App alloc] initWithWebView:webView]; 

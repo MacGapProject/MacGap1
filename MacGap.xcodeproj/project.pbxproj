@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1495814F15C15CCC00E1CFE5 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1495814E15C15CCC00E1CFE5 /* Notice.m */; };
+		6FD6E4ED18C2D48C00DFFBE6 /* fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6E4EC18C2D48C00DFFBE6 /* fonts.m */; };
 		88746BEE14CCA435001E160E /* JSEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 88746BED14CCA435001E160E /* JSEventHelper.m */; };
 		88C0646014BDE10A00E4BCE2 /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0645F14BDE10A00E4BCE2 /* Window.m */; };
 		88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0646414BDEC5800E4BCE2 /* Window.xib */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		1495814D15C15CCC00E1CFE5 /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notice.h; path = Classes/Commands/Notice.h; sourceTree = "<group>"; };
 		1495814E15C15CCC00E1CFE5 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notice.m; path = Classes/Commands/Notice.m; sourceTree = "<group>"; };
+		6FD6E4EB18C2D48200DFFBE6 /* fonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fonts.h; path = Classes/Commands/fonts.h; sourceTree = "<group>"; };
+		6FD6E4EC18C2D48C00DFFBE6 /* fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = fonts.m; path = Classes/Commands/fonts.m; sourceTree = "<group>"; };
 		88746BEC14CCA435001E160E /* JSEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSEventHelper.h; path = Classes/JSEventHelper.h; sourceTree = "<group>"; };
 		88746BED14CCA435001E160E /* JSEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSEventHelper.m; path = Classes/JSEventHelper.m; sourceTree = "<group>"; };
 		88C0645E14BDE10A00E4BCE2 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = Classes/Window.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				1495814E15C15CCC00E1CFE5 /* Notice.m */,
 				FA3250CA14BA860800BF0781 /* Dock.h */,
 				FA3250CB14BA860800BF0781 /* Dock.m */,
+				6FD6E4EB18C2D48200DFFBE6 /* fonts.h */,
+				6FD6E4EC18C2D48C00DFFBE6 /* fonts.m */,
 				FA3250BD14BA85E700BF0781 /* Utils.h */,
 				FA3250BE14BA85E700BF0781 /* Utils.m */,
 				FA3250CC14BA860800BF0781 /* Growl.h */,
@@ -300,6 +305,7 @@
 				FAE451D214BA79C600190544 /* AppDelegate.m in Sources */,
 				88C0646014BDE10A00E4BCE2 /* Window.m in Sources */,
 				88C0646D14BDF6A600E4BCE2 /* WindowController.m in Sources */,
+				6FD6E4ED18C2D48C00DFFBE6 /* fonts.m in Sources */,
 				88746BEE14CCA435001E160E /* JSEventHelper.m in Sources */,
 				1495814F15C15CCC00E1CFE5 /* Notice.m in Sources */,
 				F2B80016179E0FC100B069A8 /* Clipboard.m in Sources */,

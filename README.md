@@ -110,6 +110,17 @@ Notice:
       title: "Notify",
       content: "New Message!"
     });
+    
+Fonts:
+
+    // Return an array of installed font names
+    macgap.fonts.availableFonts();
+    
+    // Return an array of installed font families
+    macgap.fonts.availableFontFamilies();
+
+	// Return the fonts in the given font family.
+    macgap.fonts.availableMembersOfFontFamily('Helvetica');
 
 Events:
 
