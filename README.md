@@ -59,6 +59,10 @@ Window:
     // Resize window
     macgap.window.resize({width: 400, height: 200});
 
+	// Get the window coordinates
+	macgap.window.getX();
+	macgap.window.getY();
+
     // Move window (Bottom left is x:0 and y:0)
     macgap.window.move({x:0, y: 200});
 
