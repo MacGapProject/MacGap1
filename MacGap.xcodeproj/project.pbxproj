@@ -11,6 +11,8 @@
 		6F169DA718CC332E005EDDF3 /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F169DA618CC332E005EDDF3 /* Command.m */; };
 		6F169DAA18CC35FD005EDDF3 /* CallbackDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F169DA918CC35FD005EDDF3 /* CallbackDelegate.m */; };
 		6F169DAC18CD8A4A005EDDF3 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F169DAB18CD8A4A005EDDF3 /* JavaScriptCore.framework */; };
+		6F169DB118CD906F005EDDF3 /* MenuItemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F169DAE18CD906F005EDDF3 /* MenuItemProxy.m */; };
+		6F169DB218CD906F005EDDF3 /* MenuProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F169DB018CD906F005EDDF3 /* MenuProxy.m */; };
 		88746BEE14CCA435001E160E /* JSEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 88746BED14CCA435001E160E /* JSEventHelper.m */; };
 		88C0646014BDE10A00E4BCE2 /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0645F14BDE10A00E4BCE2 /* Window.m */; };
 		88C0646614BDEC5800E4BCE2 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0646414BDEC5800E4BCE2 /* Window.xib */; };
@@ -58,6 +60,10 @@
 		6F169DA818CC35FD005EDDF3 /* CallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallbackDelegate.h; path = Classes/CallbackDelegate.h; sourceTree = "<group>"; };
 		6F169DA918CC35FD005EDDF3 /* CallbackDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallbackDelegate.m; path = Classes/CallbackDelegate.m; sourceTree = "<group>"; };
 		6F169DAB18CD8A4A005EDDF3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		6F169DAD18CD906F005EDDF3 /* MenuItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItemProxy.h; path = Classes/Commands/MenuItemProxy.h; sourceTree = "<group>"; };
+		6F169DAE18CD906F005EDDF3 /* MenuItemProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItemProxy.m; path = Classes/Commands/MenuItemProxy.m; sourceTree = "<group>"; };
+		6F169DAF18CD906F005EDDF3 /* MenuProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuProxy.h; path = Classes/Commands/MenuProxy.h; sourceTree = "<group>"; };
+		6F169DB018CD906F005EDDF3 /* MenuProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuProxy.m; path = Classes/Commands/MenuProxy.m; sourceTree = "<group>"; };
 		88746BEC14CCA435001E160E /* JSEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSEventHelper.h; path = Classes/JSEventHelper.h; sourceTree = "<group>"; };
 		88746BED14CCA435001E160E /* JSEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSEventHelper.m; path = Classes/JSEventHelper.m; sourceTree = "<group>"; };
 		88C0645E14BDE10A00E4BCE2 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = Classes/Window.h; sourceTree = "<group>"; };
@@ -156,6 +162,10 @@
 				FA3250D114BA860800BF0781 /* Sound.m */,
 				FA3250C814BA860800BF0781 /* App.h */,
 				FA3250C914BA860800BF0781 /* App.m */,
+				6F169DAD18CD906F005EDDF3 /* MenuItemProxy.h */,
+				6F169DAE18CD906F005EDDF3 /* MenuItemProxy.m */,
+				6F169DAF18CD906F005EDDF3 /* MenuProxy.h */,
+				6F169DB018CD906F005EDDF3 /* MenuProxy.m */,
 				88C0645E14BDE10A00E4BCE2 /* Window.h */,
 				88C0645F14BDE10A00E4BCE2 /* Window.m */,
 				88746BEC14CCA435001E160E /* JSEventHelper.h */,
@@ -312,9 +322,11 @@
 				FA3250C514BA85E700BF0781 /* Utils.m in Sources */,
 				FA3250C714BA85E700BF0781 /* WebViewDelegate.m in Sources */,
 				FAE451CB14BA79C600190544 /* main.m in Sources */,
+				6F169DB118CD906F005EDDF3 /* MenuItemProxy.m in Sources */,
 				FAE451D214BA79C600190544 /* AppDelegate.m in Sources */,
 				6F169DA718CC332E005EDDF3 /* Command.m in Sources */,
 				88C0646014BDE10A00E4BCE2 /* Window.m in Sources */,
+				6F169DB218CD906F005EDDF3 /* MenuProxy.m in Sources */,
 				88C0646D14BDF6A600E4BCE2 /* WindowController.m in Sources */,
 				88746BEE14CCA435001E160E /* JSEventHelper.m in Sources */,
 				1495814F15C15CCC00E1CFE5 /* Notice.m in Sources */,

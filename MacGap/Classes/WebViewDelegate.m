@@ -8,6 +8,8 @@
 #import "Window.h"
 #import "WindowController.h"
 #import "Clipboard.h"
+#import "MenuProxy.h"
+
 @implementation WebViewDelegate
 
 @synthesize sound;
@@ -19,9 +21,21 @@
 @synthesize window;
 @synthesize requestedWindow;
 @synthesize clipboard;
+@synthesize menu;
+
+- (id) initWithMenu:(NSMenu*)aMenu
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    mainMenu = aMenu;
+    return self;
+}
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
+    JSContextRef context = [frame globalContext];
 	if (self.sound == nil) { self.sound = [Sound new]; }
 	if (self.dock == nil) { self.dock = [Dock new]; }
 	if (self.growl == nil) { self.growl = [Growl new]; }
@@ -35,6 +49,10 @@
     
     if (self.window == nil) { 
         self.window = [[Window alloc] initWithWebView:webView]; 
+    }
+    
+    if (self.menu == nil) {
+        self.menu = [MenuProxy proxyWithContext:context andMenu:mainMenu];
     }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
