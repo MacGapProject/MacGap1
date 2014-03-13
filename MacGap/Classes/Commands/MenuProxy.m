@@ -79,14 +79,31 @@ static BOOL isNullish(id o)
 }
 
 - (MenuItemProxy*)addItemWithTitle:(NSString*)title 
-                     keyEquivalent:(NSString*)aKey
+                     keyEquivalent:(NSString*)aKeys
                           callback:(WebScriptObject*)aCallback
 {
     if (isNullish(title))
         title = @"";
-    if (isNullish(aKey))
-        aKey = @"";
-    NSMenuItem *item = [menu addItemWithTitle:title action:nil keyEquivalent:aKey];
+    if (isNullish(aKeys))
+        aKeys = @"";
+
+    // aKeys may optionally specify one or more modifiers.
+    NSUInteger modifiers = 0;
+    if ([aKeys rangeOfString:@"caps"].location != NSNotFound) modifiers += NSAlphaShiftKeyMask;
+    if ([aKeys rangeOfString:@"shift"].location != NSNotFound) modifiers += NSShiftKeyMask;
+    if ([aKeys rangeOfString:@"cmd"].location != NSNotFound) modifiers += NSCommandKeyMask;
+    if ([aKeys rangeOfString:@"ctrl"].location != NSNotFound) modifiers += NSControlKeyMask;
+    if ([aKeys rangeOfString:@"opt"].location != NSNotFound) modifiers += NSAlternateKeyMask;
+    if ([aKeys rangeOfString:@"alt"].location != NSNotFound) modifiers += NSAlternateKeyMask;
+
+    // Obtain the key (without modifiers, if any).
+    NSString *aKey = [aKeys substringFromIndex:[aKeys length] - 1];
+
+    NSMenuItem *item = [menu addItemWithTitle:title action:nil keyEquivalent:aKey ];
+    
+    // Set the modifiers.
+    [item setKeyEquivalentModifierMask:modifiers];
+
     MenuItemProxy *mip = [MenuItemProxy proxyWithContext:context andMenuItem:item];
     if (!isNullish(aCallback))
         [mip setCallback:aCallback];

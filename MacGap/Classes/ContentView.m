@@ -38,7 +38,7 @@
     
     [self.webView setApplicationNameForUserAgent: @"MacGap"];
     
-	self.delegate = [[WebViewDelegate alloc] initWithMenu:mainMenu];
+	self.delegate = [[WebViewDelegate alloc] initWithMenu:[NSApp mainMenu]];
 	[self.webView setFrameLoadDelegate:self.delegate];
 	[self.webView setUIDelegate:self.delegate];
 	[self.webView setResourceLoadDelegate:self.delegate];
