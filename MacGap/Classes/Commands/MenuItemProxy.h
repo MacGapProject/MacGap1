@@ -22,7 +22,7 @@
 
 - (void) remove;
 - (void)setCallback:(WebScriptObject*)aCallback;
-- (void)setKey:(NSString*)aString;
+- (void)setKey:(NSString*)keyCommand;
 - (void) setTitle:(NSString*)title;
 - (MenuProxy*)submenu;
 

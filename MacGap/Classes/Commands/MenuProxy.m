@@ -79,35 +79,50 @@ static BOOL isNullish(id o)
 }
 
 - (MenuItemProxy*)addItemWithTitle:(NSString*)title 
-                     keyEquivalent:(NSString*)aKeys
+                     keyEquivalent:(NSString*)keyCommand
                           callback:(WebScriptObject*)aCallback
 {
     if (isNullish(title))
         title = @"";
-    if (isNullish(aKeys))
-        aKeys = @"";
 
-    // aKeys may optionally specify one or more modifiers.
-    NSUInteger modifiers = 0;
-    if ([aKeys rangeOfString:@"caps"].location != NSNotFound) modifiers += NSAlphaShiftKeyMask;
-    if ([aKeys rangeOfString:@"shift"].location != NSNotFound) modifiers += NSShiftKeyMask;
-    if ([aKeys rangeOfString:@"cmd"].location != NSNotFound) modifiers += NSCommandKeyMask;
-    if ([aKeys rangeOfString:@"ctrl"].location != NSNotFound) modifiers += NSControlKeyMask;
-    if ([aKeys rangeOfString:@"opt"].location != NSNotFound) modifiers += NSAlternateKeyMask;
-    if ([aKeys rangeOfString:@"alt"].location != NSNotFound) modifiers += NSAlternateKeyMask;
-
-    // Obtain the key (without modifiers, if any).
-    NSString *aKey = [aKeys substringFromIndex:[aKeys length] - 1];
-
+    NSString *aKey = [MenuProxy getKeyFromString:keyCommand];
     NSMenuItem *item = [menu addItemWithTitle:title action:nil keyEquivalent:aKey ];
     
     // Set the modifiers.
+    NSUInteger modifiers = [MenuProxy getModifiersFromString:keyCommand];
     [item setKeyEquivalentModifierMask:modifiers];
 
     MenuItemProxy *mip = [MenuItemProxy proxyWithContext:context andMenuItem:item];
     if (!isNullish(aCallback))
         [mip setCallback:aCallback];
     return mip;
+}
+
++ (NSString*)getKeyFromString:(NSString*)keyCommand {
+    if (isNullish(keyCommand))
+        keyCommand = @"";
+
+    // Obtain the key (if there are modifiers, it will be the last character).
+    NSString *aKey = @"";
+    if ([keyCommand length] > 0) {
+        aKey = [keyCommand substringFromIndex:[keyCommand length] - 1];
+    }
+
+    return aKey;
+}
+
++ (NSUInteger*)getModifiersFromString:(NSString*)keyCommand {
+    // aKeys may optionally specify one or more modifiers.
+    NSUInteger modifiers = 0;
+    
+    if ([keyCommand rangeOfString:@"caps"].location != NSNotFound) modifiers += NSAlphaShiftKeyMask;
+    if ([keyCommand rangeOfString:@"shift"].location != NSNotFound) modifiers += NSShiftKeyMask;
+    if ([keyCommand rangeOfString:@"cmd"].location != NSNotFound) modifiers += NSCommandKeyMask;
+    if ([keyCommand rangeOfString:@"ctrl"].location != NSNotFound) modifiers += NSControlKeyMask;
+    if ([keyCommand rangeOfString:@"opt"].location != NSNotFound) modifiers += NSAlternateKeyMask;
+    if ([keyCommand rangeOfString:@"alt"].location != NSNotFound) modifiers += NSAlternateKeyMask;
+
+    return modifiers;
 }
 
 - (MenuItemProxy*)addSeparator

@@ -22,4 +22,7 @@
 - (MenuItemProxy*)addSeparator;
 - (MenuItemProxy*)itemForKey:(id)key;
 
++ (NSString*)getKeyFromString:(NSString*)keyCommand;
++ (NSUInteger*)getModifiersFromString:(NSString*)keyCommand;
+
 @end

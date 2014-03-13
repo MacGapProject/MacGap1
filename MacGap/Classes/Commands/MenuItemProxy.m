@@ -70,9 +70,13 @@
     [item setTarget:self];
 }
 
-- (void)setKey:(NSString*)aString
+- (void)setKey:(NSString*)keyCommand
 {
-    [item setKeyEquivalent:aString];
+    NSString *aKey = [MenuProxy getKeyFromString:keyCommand];
+    [item setKeyEquivalent:aKey];
+    
+    NSUInteger modifiers = [MenuProxy getModifiersFromString:keyCommand];
+    [item setKeyEquivalentModifierMask:modifiers];
 }
 
 - (void) setTitle:(NSString*)title
