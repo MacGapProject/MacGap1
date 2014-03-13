@@ -118,6 +118,36 @@ Events:
 
     //Mac OS X on sleep event.
     document.addEventListener('sleep', function(){console.log('Sleep!!')}, true);
+    
+Menus:
+
+    // Add a menu item.
+    macgap.menu.getItem("File").submenu().addItem("Foo", "cmd+opt+g", function() { alert("Foo!"); })
+    
+    // Menu item keyboard commands can include any of the following modifiers: caps, shift, cmd, ctrl, opt, alt
+
+    // Add a menu item separator.
+	macgap.menu.getItem("File").submenu().addSeparator();
+
+    // Remove a menu item or an entire menu.
+    macgap.menu.getItem("File").remove(); // Remove the file menu
+    macgap.menu.getItem("File").submenu().getItem("Foo").remove(); // Remove the file menu's "foo" item
+
+	// Remove a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Close").remove();
+	
+	// Change the callback for a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Foo").setCallback(function(){alert('Foo new');});
+
+	// Change the key command for a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Foo").setKey('cmd-opt-ctrl-g');
+
+	// Change the title of a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Foo").setTitle('Foonew');
+
+	// Add a new submenu for a menu item.
+	macgap.menu.getItem("File").submenu().getItem('Foo').addSubmenu().addItem("Foofoo", "cmd+opt+h", function() { alert("Foofoo!"); })
+
 
 ##Offline Patterns
 
