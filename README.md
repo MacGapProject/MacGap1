@@ -113,11 +113,19 @@ Notice:
 
 Events:
 
-    //Mac OS X on wake event.
+    // Mac OS X on wake event.
     document.addEventListener('wake', function(){console.log('Wake!!')}, true);
 
-    //Mac OS X on sleep event.
+    // Mac OS X on sleep event.
     document.addEventListener('sleep', function(){console.log('Sleep!!')}, true);
+    
+    // Mac OS X app was activated.
+    document.addEventListener('appActivated', function(e {
+        console.log(e.data);
+        var appName = e.data.localizedName;
+        var bundleURL = e.data.bundleURL;
+    }, true);
+
 
 ##Offline Patterns
 

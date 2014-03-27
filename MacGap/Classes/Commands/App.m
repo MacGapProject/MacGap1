@@ -17,6 +17,9 @@
         [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self 
                                                                selector: @selector(receiveWakeNotification:) 
                                                                    name: NSWorkspaceDidWakeNotification object: NULL];
+        [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                               selector: @selector(receiveActivateNotification:)
+                                                                   name: NSWorkspaceDidActivateApplicationNotification object: NULL];
     }
 
     return self;
@@ -60,6 +63,20 @@
 
 - (void) receiveWakeNotification:(NSNotification*)note{
     [JSEventHelper triggerEvent:@"wake" forWebView:self.webView];
+}
+
+- (void) receiveActivateNotification:(NSNotification*)notification{
+    NSDictionary* userInfo = [notification userInfo];
+    NSRunningApplication* runningApplication = [userInfo objectForKey:NSWorkspaceApplicationKey];
+    if (runningApplication) {
+        NSMutableDictionary* applicationDidGetFocusDict = [[NSMutableDictionary alloc] initWithCapacity:2];
+        [applicationDidGetFocusDict setObject:runningApplication.localizedName
+                                       forKey:@"localizedName"];
+        [applicationDidGetFocusDict setObject:[runningApplication.bundleURL absoluteString]
+                                       forKey:@"bundleURL"];
+        
+        [JSEventHelper triggerEvent:@"appActivated" withArgs:applicationDidGetFocusDict forWebView:self.webView];
+    }
 }
 
 + (NSString*) webScriptNameForSelector:(SEL)selector
