@@ -81,6 +81,12 @@ Path:
 
     // Path to application's resources
     macgap.path.resource;
+    
+    // Path to the current user's documents directory.
+    macgap.path.documents;
+
+    // Path to the application's home directory. This is the application’s sandbox directory or the current user’s home directory (if the application is not in a sandbox).
+    macgap.path.home;
 
 Dock:
 
