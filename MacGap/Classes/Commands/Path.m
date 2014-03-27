@@ -6,6 +6,7 @@
 @synthesize resource;
 @synthesize documents;
 @synthesize home;
+@synthesize temp;
 
 - (NSString *)application {
     return [[NSBundle mainBundle] bundlePath];
@@ -22,6 +23,10 @@
 
 - (NSString *)home {
     return NSHomeDirectory();
+}
+
+- (NSString *)temp {
+    return NSTemporaryDirectory();
 }
 
 #pragma mark WebScripting Protocol
