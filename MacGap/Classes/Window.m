@@ -39,6 +39,16 @@
     return a.origin.x == b.origin.x && a.origin.y == b.origin.y && a.size.width == b.size.width && a.size.height == b.size.height;
 }
 
+- (CGFloat) getX {
+    NSRect frame = [self.webView window].frame;
+    return frame.origin.x;
+}
+
+- (CGFloat) getY {
+    NSRect frame = [self.webView window].frame;
+    return frame.origin.y;
+}
+
 - (void) move:(NSDictionary *)properties
 {
     NSRect frame = [self.webView window].frame;
