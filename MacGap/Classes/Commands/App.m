@@ -49,6 +49,10 @@
     [NSApp requestUserAttention:NSInformationalRequest];
 }
 
+- (void)setCustomUserAgent:(NSString *)userAgentString {
+    [self.webView setCustomUserAgent: userAgentString];
+}
+
 - (void) open:(NSString*)url {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }
@@ -87,9 +91,11 @@
 		result = @"open";
 	} else if (selector == @selector(launch:)) {
         result = @"launch";
+    } else if (selector == @selector(setCustomUserAgent:)) {
+        result = @"setCustomUserAgent";
     }
-	
-	return result;
+
+    return result;
 }
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector

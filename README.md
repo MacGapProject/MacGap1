@@ -43,6 +43,9 @@ App:
     // Launch application
     macgap.app.launch("TextEdit");
 
+	// Set a custom user agent string
+	macgap.app.setCustomUserAgent('new user agent string');
+	
 Clipboard:
 
     // copy text to clipboard
@@ -58,6 +61,10 @@ Window:
 
     // Resize window
     macgap.window.resize({width: 400, height: 200});
+
+	// Get the window coordinates
+	macgap.window.getX();
+	macgap.window.getY();
 
     // Move window (Bottom left is x:0 and y:0)
     macgap.window.move({x:0, y: 200});
@@ -81,6 +88,15 @@ Path:
 
     // Path to application's resources
     macgap.path.resource;
+    
+    // Path to the current user's documents directory.
+    macgap.path.documents;
+
+    // Path to the application's home directory. This is the application’s sandbox directory or the current user’s home directory (if the application is not in a sandbox).
+    macgap.path.home;
+    
+    // Path to the App's temp directory.
+    macgap.path.temp;
 
 Dock:
 
@@ -110,6 +126,17 @@ Notice:
       title: "Notify",
       content: "New Message!"
     });
+    
+Fonts:
+
+    // Return an array of installed font names
+    macgap.fonts.availableFonts();
+    
+    // Return an array of installed font families
+    macgap.fonts.availableFontFamilies();
+
+	// Return the fonts in the given font family.
+    macgap.fonts.availableMembersOfFontFamily('Helvetica');
 
 Events:
 
@@ -125,6 +152,35 @@ Events:
         var appName = e.data.localizedName;
         var bundleURL = e.data.bundleURL;
     }, true);
+    
+Menus:
+
+    // Add a menu item.
+    macgap.menu.getItem("File").submenu().addItem("Foo", "cmd+opt+g", function() { alert("Foo!"); })
+    
+    // Menu item keyboard commands can include any of the following modifiers: caps, shift, cmd, ctrl, opt, alt
+
+    // Add a menu item separator.
+	macgap.menu.getItem("File").submenu().addSeparator();
+
+    // Remove a menu item or an entire menu.
+    macgap.menu.getItem("File").remove(); // Remove the file menu
+    macgap.menu.getItem("File").submenu().getItem("Foo").remove(); // Remove the file menu's "foo" item
+
+	// Remove a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Close").remove();
+	
+	// Change the callback for a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Foo").setCallback(function(){alert('Foo new');});
+
+	// Change the key command for a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Foo").setKey('cmd-opt-ctrl-g');
+
+	// Change the title of a menu item.
+	macgap.menu.getItem("File").submenu().getItem("Foo").setTitle('Foonew');
+
+	// Add a new submenu for a menu item.
+	macgap.menu.getItem("File").submenu().getItem('Foo').addSubmenu().addItem("Foofoo", "cmd+opt+h", function() { alert("Foofoo!"); })
 
 
 ##Offline Patterns
