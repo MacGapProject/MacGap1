@@ -191,7 +191,7 @@ First you can define a refresh tag in `index.html`, which will immediately forwa
 
     <meta http-equiv="refresh" content="0;url=http://example.com">
 
-Then use [HTML5 offline APIs](http://www.w3.org/TR/html5/offline.html) to cache your application locally. The first time your application launches, it'll download all the remote resources for use offline. Then during subsequent launches the locally cached resources will be used, and the application will fully function offline. If your remote application changes, then the cache manifest will be updated and application re-cached.
+Then use [HTML5 offline APIs](http://www.w3.org/TR/offline-webapps/) to cache your application locally. The first time your application launches, it'll download all the remote resources for use offline. Then during subsequent launches the locally cached resources will be used, and the application will fully function offline. If your remote application changes, then the cache manifest will be updated and application re-cached.
 
 ##Attributes
 
