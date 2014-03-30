@@ -14,7 +14,7 @@
 
 @implementation ContentView
 
-@synthesize webView, delegate;
+@synthesize webView, delegate, mainMenu;
 
 - (void) awakeFromNib
 {
@@ -38,7 +38,7 @@
     
     [self.webView setApplicationNameForUserAgent: @"MacGap"];
     
-	self.delegate = [[WebViewDelegate alloc] init];
+	self.delegate = [[WebViewDelegate alloc] initWithMenu:[NSApp mainMenu]];
 	[self.webView setFrameLoadDelegate:self.delegate];
 	[self.webView setUIDelegate:self.delegate];
 	[self.webView setResourceLoadDelegate:self.delegate];
