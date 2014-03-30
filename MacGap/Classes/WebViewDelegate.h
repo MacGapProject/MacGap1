@@ -10,6 +10,7 @@
 @class Window;
 @class Clipboard;
 @class Fonts;
+@class MenuProxy;
 
 @class WindowController;
 
@@ -23,6 +24,7 @@
     Window* window;
     Clipboard* clipboard;
     Fonts* fonts;
+    NSMenu *mainMenu;
 }
 
 
@@ -36,7 +38,9 @@
 @property (nonatomic, retain) Window* window;
 @property (nonatomic, retain) Clipboard* clipboard;
 @property (nonatomic, retain) Fonts* fonts;
+@property (nonatomic, retain) MenuProxy* menu;
 
 @property (nonatomic, retain) WindowController *requestedWindow;
 
+- (id) initWithMenu:(NSMenu*)menu;
 @end
