@@ -11,6 +11,7 @@
 @class Clipboard;
 @class Fonts;
 @class MenuProxy;
+@class UserDefaults;
 
 @class WindowController;
 
@@ -25,6 +26,7 @@
     Clipboard* clipboard;
     Fonts* fonts;
     NSMenu *mainMenu;
+    UserDefaults* userDefaults;
 }
 
 
@@ -39,6 +41,7 @@
 @property (nonatomic, retain) Clipboard* clipboard;
 @property (nonatomic, retain) Fonts* fonts;
 @property (nonatomic, retain) MenuProxy* menu;
+@property (nonatomic, retain) UserDefaults* userDefaults;
 
 @property (nonatomic, retain) WindowController *requestedWindow;
 

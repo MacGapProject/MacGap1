@@ -10,6 +10,7 @@
 #import "Clipboard.h"
 #import "Fonts.h"
 #import "MenuProxy.h"
+#import "UserDefaults.h"
 
 @implementation WebViewDelegate
 
@@ -24,6 +25,7 @@
 @synthesize clipboard;
 @synthesize fonts;
 @synthesize menu;
+@synthesize userDefaults;
 
 - (id) initWithMenu:(NSMenu*)aMenu
 {
@@ -57,6 +59,7 @@
     if (self.menu == nil) {
         self.menu = [MenuProxy proxyWithContext:context andMenu:mainMenu];
     }
+	if (self.userDefaults == nil) { self.userDefaults = [UserDefaults new]; }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }
