@@ -8,9 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
+#import "WindowController.h"
+
 @interface UserDefaults : NSObject
 
-- (void) setUserDefaultString:(NSString*)key withValue:(NSString*)value;
-- (NSString*) getUserDefaultString:(NSString*)key;
+@property (nonatomic, retain) WebView *webView;
+
+- (id) initWithWebView:(WebView *)view;
+- (NSString*) getUserDefaults;
+- (void) removeObjectForKey:(NSString*)key;
+
+- (void) setString:(NSString*)key withValue:(NSString*)value;
+- (NSString*) getString:(NSString*)key;
+
+- (void) setInteger:(NSString*)key withValue:(NSString*)value;
+- (NSNumber*) getInteger:(NSString*)key;
+
+- (void) setBool:(NSString*)key withValue:(NSString*)value;
+- (NSNumber*) getBool:(NSString*)key;
+
+- (void) setFloat:(NSString*)key withValue:(NSString*)value;
+- (NSNumber*) getFloat:(NSString*)key;
+
+// Could also be implemented:
+//– setObject:forKey:
+//– setDouble:forKey:
+//– setURL:forKey:
 
 @end
+

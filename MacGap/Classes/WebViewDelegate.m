@@ -59,7 +59,10 @@
     if (self.menu == nil) {
         self.menu = [MenuProxy proxyWithContext:context andMenu:mainMenu];
     }
-	if (self.userDefaults == nil) { self.userDefaults = [UserDefaults new]; }
+    
+	if (self.userDefaults == nil) {
+        self.userDefaults = [[UserDefaults alloc] initWithWebView:webView];
+    }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }

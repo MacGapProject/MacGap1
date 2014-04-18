@@ -7,31 +7,127 @@
 //
 
 #import "UserDefaults.h"
+#import "JSEventHelper.h"
+
+@interface UserDefaults() {
+
+}
+
+-(void) setupNotificationCenter;
+
+@end
+
 
 @implementation UserDefaults
 
-- (void) setUserDefaultString:(NSString*)key withValue:(NSString*)value {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:value forKey:key];
+- (id) initWithWebView:(WebView *) view{
+    self = [super init];
     
-    NSLog(@"setting...");
-    NSLog(key, value);
+    if (self) {
+        self.webView = view;
+        [self setupNotificationCenter];
+    }
+    
+    return self;
 }
 
-- (NSString*) getUserDefaultString:(NSString *)key {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    NSLog(@"getting...");
-    NSLog(key);
 
+-(void) setupNotificationCenter{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(defaultsChanged:)
+                                                 name:NSUserDefaultsDidChangeNotification
+                                               object:nil];
+}
+
+- (void)defaultsChanged:(NSNotification *)notification {
+    // Get the user defaults.
+    NSUserDefaults *defaults = (NSUserDefaults *)[notification object];
+    
+    // Get a dictionary of the user defaults.
+    NSDictionary *dict = [defaults dictionaryRepresentation];
+    
+    [JSEventHelper triggerEvent:@"userDefaultsChanged" withArgs:dict forWebView:self.webView];
+}
+
+- (NSString*) getUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    // Convert defaults Dictionary to JSON.
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization
+                        dataWithJSONObject:[defaults dictionaryRepresentation]
+                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                        error:&error];
+    
+    NSString *jsonString;
+    if (! jsonData) {
+        NSLog(@"Got an error converting to JSON: %@", error);
+    }
+    else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+
+    return jsonString;
+}
+
+- (void) removeObjectForKey:(NSString*)key {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    [[NSUserDefaults standardUserDefaults]synchronize ];
+}
+
+// String
+
+- (void) setString:(NSString*)key withValue:(NSString*)value {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:value forKey:key];
+}
+
+- (NSString*) getString:(NSString *)key {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     return [prefs stringForKey:key];
 }
 
-// getting an NSInteger
-//NSInteger myInt = [prefs integerForKey:@"integerKey"];
+// All the following must convert their type to NSNumber for JavaScript.
 
-// getting an Float
-//float myFloat = [prefs floatForKey:@"floatKey"];
+// Integer
+
+- (void) setInteger:(NSString*)key withValue:(NSString*)value {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSInteger myInt = [value intValue];
+    [prefs setInteger:myInt forKey:key];
+}
+
+- (NSNumber*) getInteger:(NSString *)key {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    return [NSNumber numberWithInteger:[prefs integerForKey:key]];
+}
+
+// Boolean
+
+- (void) setBool:(NSString*)key withValue:(NSString*)value {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    BOOL myBool = [value boolValue];
+    [prefs setBool:myBool forKey:key];
+}
+
+- (NSNumber*) getBool:(NSString *)key {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    return [NSNumber numberWithBool:[prefs boolForKey:key]];
+}
+
+// Float
+
+- (void) setFloat:(NSString*)key withValue:(NSString*)value {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    float myFloat = [value floatValue];
+    [prefs setFloat:myFloat forKey:key];
+}
+
+- (NSNumber*) getFloat:(NSString *)key {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    return [NSNumber numberWithFloat:[prefs floatForKey:key]];
+}
+
 
 #pragma mark WebScripting Protocol
 
@@ -42,12 +138,38 @@
 + (NSString*) webScriptNameForSelector:(SEL)selector {
 	id	result = nil;
 	
-	if (selector == @selector(setUserDefaultString:withValue:)) {
-		result = @"setUserDefaultString";
-    } else if (selector == @selector(getUserDefaultString:)) {
-        result = @"getUserDefaultString";
+	if (selector == @selector(getUserDefaults)) {
+		result = @"getUserDefaults";
     }
     
+	if (selector == @selector(removeObjectForKey:)) {
+		result = @"removeObjectForKey";
+    }
+    
+    else if (selector == @selector(setString:withValue:)) {
+		result = @"setString";
+    } else if (selector == @selector(getString:)) {
+        result = @"getString";
+    }
+    
+    else if (selector == @selector(setInteger:withValue:)) {
+		result = @"setInteger";
+    } else if (selector == @selector(getInteger:)) {
+        result = @"getInteger";
+    }
+    
+    else if (selector == @selector(setBool:withValue:)) {
+		result = @"setBool";
+    } else if (selector == @selector(getBool:)) {
+        result = @"getBool";
+    }
+
+    else if (selector == @selector(setFloat:withValue:)) {
+		result = @"setFloat";
+    } else if (selector == @selector(getFloat:)) {
+        result = @"getFloat";
+    }
+
 	return result;
 }
 
