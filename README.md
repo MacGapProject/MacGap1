@@ -197,8 +197,11 @@ User Defaults:
     
     var defaults = JSON.parse( macgap.userDefaults.getUserDefaults() );
 
-    // Set the user default at the specified key. Objective-C is strongly typed, unlike JavaScript. For security, keys must be preceded by 'macgap.'. If this is omitted it will be added automatically.
+    // Set the user default at the specified key. Objective-C is strongly typed, unlike JavaScript. For security, keys are automatically preceded with 'macgap.'. If this is omitted it will be added automatically. Thus the following two statements are functionally identical.
+    
     macgap.userDefaults.setString('macgap.mykey', 'mystring');
+    macgap.userDefaults.setString('mykey', 'mystring');
+
     macgap.userDefaults.setInteger('macgap.mykey', 5);
     macgap.userDefaults.setBool('macgap.mykey', 1);
     macgap.userDefaults.setFloat('macgap.mykey', 12.345678);
@@ -216,6 +219,8 @@ User Defaults:
 	document.addEventListener('userDefaultsChanged', function(e) {
 		console.log(e.data);
     }, true);
+
+User defaults added by JavaScript will be automatically namespaced by prefixing `macgap.`. This ensures it is not possible for JavaScript to modify or delete User Defaults which it did not create, as a security measure.
 
 The User Defaults provide a large amount of interesting data that is now available to your JavaScript app.
 
