@@ -19,6 +19,7 @@ MacGap exposes an object called `macgap` inside JavaScript. You can use it to al
 
 App:
 
+```js
     // Quit application
     macgap.app.terminate();
 
@@ -45,6 +46,12 @@ App:
 
 	// Set a custom user agent string
 	macgap.app.setCustomUserAgent('new user agent string');
+	
+	// Get the system idle time. This example outputs the idle time to the console once per second.
+	window.setInterval(function(){
+		console.log( macgap.app.systemIdleTime() );
+    }, 1000);
+
 	
 Clipboard:
 

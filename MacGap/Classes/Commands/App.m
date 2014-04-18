@@ -83,6 +83,21 @@
     }
 }
 
+
+
+
+/*
+ To get the elapsed time since the previous input event—keyboard, mouse, or tablet—specify kCGAnyInputEventType.
+ */
+- (NSNumber*)systemIdleTime {
+    CFTimeInterval timeSinceLastEvent = CGEventSourceSecondsSinceLastEventType(kCGEventSourceStateHIDSystemState, kCGAnyInputEventType);
+    
+    return [NSNumber numberWithDouble:timeSinceLastEvent];
+}
+
+
+
+
 + (NSString*) webScriptNameForSelector:(SEL)selector
 {
 	id	result = nil;
@@ -93,6 +108,8 @@
         result = @"launch";
     } else if (selector == @selector(setCustomUserAgent:)) {
         result = @"setCustomUserAgent";
+    } else if (selector == @selector(systemIdleTime)) {
+        result = @"systemIdleTime";
     }
 
     return result;
