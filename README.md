@@ -19,7 +19,6 @@ MacGap exposes an object called `macgap` inside JavaScript. You can use it to al
 
 App:
 
-```js
     // Quit application
     macgap.app.terminate();
 
@@ -198,20 +197,20 @@ User Defaults:
     
     var defaults = JSON.parse( macgap.userDefaults.getUserDefaults() );
 
-    // Set the user default at the specified key. Objective-C is strongly typed, unlike JavaScript.
-    macgap.userDefaults.setString('mykey', 'mystring');
-    macgap.userDefaults.setInteger('mykey', 5);
-    macgap.userDefaults.setBool('mykey', 1);
-    macgap.userDefaults.setFloat('mykey', 12.345678);
+    // Set the user default at the specified key. Objective-C is strongly typed, unlike JavaScript. For security, keys must be preceded by 'macgap.'. If this is omitted it will be added automatically.
+    macgap.userDefaults.setString('macgap.mykey', 'mystring');
+    macgap.userDefaults.setInteger('macgap.mykey', 5);
+    macgap.userDefaults.setBool('macgap.mykey', 1);
+    macgap.userDefaults.setFloat('macgap.mykey', 12.345678);
 
 	// Get the user default for the specified key. Objective-C is strongly typed, unlike JavaScript.
-	macgap.userDefaults.getString('mykey');
-	macgap.userDefaults.getInteger('mykey');
-	macgap.userDefaults.getBool('mykey');
-	macgap.userDefaults.getFloat('mykey');
+	macgap.userDefaults.getString('macgap.mykey');
+	macgap.userDefaults.getInteger('macgap.mykey');
+	macgap.userDefaults.getBool('macgap.mykey');
+	macgap.userDefaults.getFloat('macgap.mykey');
 	
 	// Remove the user default for the specified key.
-	macgap.userDefaults.removeObjectForKey('mykey');
+	macgap.userDefaults.removeObjectForKey('macgap.mykey');
 
 	// Be notified when the user defaults are changed. To see what was changed, store a local snapshot of the object and compare to it.
 	document.addEventListener('userDefaultsChanged', function(e) {
