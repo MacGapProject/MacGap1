@@ -182,6 +182,38 @@ Menus:
 	// Add a new submenu for a menu item.
 	macgap.menu.getItem("File").submenu().getItem('Foo').addSubmenu().addItem("Foofoo", "cmd+opt+h", function() { alert("Foofoo!"); })
 
+User Defaults:
+
+    // Get all user defaults. Returns a JSON string.
+    macgap.userDefaults.getUserDefaults();
+    
+    // example usage:
+    
+    var defaults = JSON.parse( macgap.userDefaults.getUserDefaults() );
+
+    // Set the user default at the specified key. Objective-C is strongly typed, unlike JavaScript.
+    macgap.userDefaults.setString('mykey', 'mystring');
+    macgap.userDefaults.setInteger('mykey', 5);
+    macgap.userDefaults.setBool('mykey', 1);
+    macgap.userDefaults.setFloat('mykey', 12.345678);
+
+	// Get the user default for the specified key. Objective-C is strongly typed, unlike JavaScript.
+	macgap.userDefaults.getString('mykey');
+	macgap.userDefaults.getInteger('mykey');
+	macgap.userDefaults.getBool('mykey');
+	macgap.userDefaults.getFloat('mykey');
+	
+	// Remove the user default for the specified key.
+	macgap.userDefaults.removeObjectForKey('mykey');
+
+	// Be notified when the user defaults are changed. To see what was changed, store a local snapshot of the object and compare to it.
+	document.addEventListener('userDefaultsChanged', function(e) {
+		console.log(e.data);
+    }, true);
+
+The User Defaults provide a large amount of interesting data that is now available to your JavaScript app.
+
+It can also be used to implement an easy channel for communication between JavaScript and objects placed into the app using Interface Builder in Xcode eg Toolbars, buttons, preference windows. These can be bound directly to the User Defaults in Interface Builder, without writing any Objective-C code.
 
 ##Offline Patterns
 
