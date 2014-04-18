@@ -18,6 +18,8 @@
 - (NSString*) getUserDefaults;
 - (void) removeObjectForKey:(NSString*)key;
 
+- (NSString*) addPrefix:(NSString*)key;
+
 - (void) setString:(NSString*)key withValue:(NSString*)value;
 - (NSString*) getString:(NSString*)key;
 

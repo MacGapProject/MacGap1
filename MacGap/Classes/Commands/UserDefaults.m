@@ -71,15 +71,33 @@
 }
 
 - (void) removeObjectForKey:(NSString*)key {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    NSString* prefixedKey;
+    prefixedKey = [self addPrefix:key];
+
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:prefixedKey];
     [[NSUserDefaults standardUserDefaults]synchronize ];
 }
 
 // String
 
+// Check we have a standard prefix for JS-modified keys, for security purposes.
+// If not, add it. This stops JavaScript from ever being able to modify keys
+// it did not create.
+- (NSString*) addPrefix:(NSString*)key {
+    NSString* prefix;
+    prefix = [kWebScriptNamespace stringByAppendingString:@"."];
+    
+    if (![key hasPrefix:prefix]) {
+        key = [prefix stringByAppendingString:key];
+    }
+    return key;
+}
+
 - (void) setString:(NSString*)key withValue:(NSString*)value {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:value forKey:key];
+    NSString* prefixedKey;
+    prefixedKey = [self addPrefix:key];
+    [prefs setObject:value forKey:prefixedKey];
 }
 
 - (NSString*) getString:(NSString *)key {
@@ -92,9 +110,12 @@
 // Integer
 
 - (void) setInteger:(NSString*)key withValue:(NSString*)value {
+    NSString* prefixedKey;
+    prefixedKey = [self addPrefix:key];
+
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSInteger myInt = [value intValue];
-    [prefs setInteger:myInt forKey:key];
+    [prefs setInteger:myInt forKey:prefixedKey];
 }
 
 - (NSNumber*) getInteger:(NSString *)key {
@@ -105,9 +126,12 @@
 // Boolean
 
 - (void) setBool:(NSString*)key withValue:(NSString*)value {
+    NSString* prefixedKey;
+    prefixedKey = [self addPrefix:key];
+
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     BOOL myBool = [value boolValue];
-    [prefs setBool:myBool forKey:key];
+    [prefs setBool:myBool forKey:prefixedKey];
 }
 
 - (NSNumber*) getBool:(NSString *)key {
@@ -118,9 +142,12 @@
 // Float
 
 - (void) setFloat:(NSString*)key withValue:(NSString*)value {
+    NSString* prefixedKey;
+    prefixedKey = [self addPrefix:key];
+
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     float myFloat = [value floatValue];
-    [prefs setFloat:myFloat forKey:key];
+    [prefs setFloat:myFloat forKey:prefixedKey];
 }
 
 - (NSNumber*) getFloat:(NSString *)key {
