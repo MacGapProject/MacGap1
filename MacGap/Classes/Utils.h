@@ -11,6 +11,7 @@
 
 - (float) titleBarHeight:(NSWindow*)aWindow;
 - (NSString*) pathForResource:(NSString*)resourcepath;
+- (NSString*) convertDictionaryToJSON:(NSDictionary*)dict;
 
 + (Utils*) sharedInstance;
 

@@ -26,6 +26,26 @@ static Utils* sharedInstance = nil;
 						   inDirectory:directoryStr];
 }
 
+- (NSString*) convertDictionaryToJSON:(NSDictionary*)dict {
+    // Convert defaults Dictionary to JSON.
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization
+                        dataWithJSONObject:dict
+                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                        error:&error];
+    
+    NSString *jsonString;
+    if (! jsonData) {
+        NSLog(@"Got an error converting to JSON: %@", error);
+    }
+    else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    return jsonString;
+}
+
+
 #pragma mark -
 #pragma mark Singleton methods
 
