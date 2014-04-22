@@ -75,23 +75,23 @@
     prefixedKey = [self addPrefix:key];
 
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:prefixedKey];
-    [[NSUserDefaults standardUserDefaults]synchronize ];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
-// String
 
 // Check we have a standard prefix for JS-modified keys, for security purposes.
 // If not, add it. This stops JavaScript from ever being able to modify keys
 // it did not create.
 - (NSString*) addPrefix:(NSString*)key {
     NSString* prefix;
-    prefix = [kWebScriptNamespace stringByAppendingString:@"."];
+    prefix = [kWebScriptNamespace stringByAppendingString:@"_"];
     
     if (![key hasPrefix:prefix]) {
         key = [prefix stringByAppendingString:key];
     }
     return key;
 }
+
+// String
 
 - (void) setString:(NSString*)key withValue:(NSString*)value {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
