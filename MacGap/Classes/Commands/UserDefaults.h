@@ -15,8 +15,10 @@
 @property (nonatomic, retain) WebView *webView;
 
 - (id) initWithWebView:(WebView *)view;
-- (NSString*) getUserDefaults;
+- (NSString*) getMyDefaults;
+- (NSDictionary*) myDefaultsDictionary;
 - (void) removeObjectForKey:(NSString*)key;
+- (NSArray*) getUserDefaultsKeys;
 
 - (NSString*) addPrefix:(NSString*)key;
 

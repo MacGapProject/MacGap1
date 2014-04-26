@@ -98,6 +98,9 @@ Path:
     // Path to the current user's documents directory.
     macgap.path.documents;
 
+    // Path to the app's library directory.
+    macgap.path.library;
+
     // Path to the application's home directory. This is the application’s sandbox directory or the current user’s home directory (if the application is not in a sandbox).
     macgap.path.home;
     
@@ -190,12 +193,14 @@ Menus:
 
 User Defaults:
 
-    // Get all user defaults. Returns a JSON string.
-    macgap.userDefaults.getUserDefaults();
+    // Get an array of all user defaults keys. The value of each may be retrieved using one of the four getter functions described below.
+	macgap.userDefaults.getUserDefaultsKeys();
+
+    // Get all user defaults set previously by your MacGap JavaScript. Returns a JSON string.
+    macgap.userDefaults.getMyDefaults();
     
     // example usage:
-    
-    var defaults = JSON.parse( macgap.userDefaults.getUserDefaults() );
+    var defaults = JSON.parse( macgap.userDefaults.getMyDefaults() );
 
     // Set the user default at the specified key. Objective-C is strongly typed, unlike JavaScript. For security, keys are automatically preceded with 'macgap_'. If this is omitted it will be added automatically. Thus the following two statements are functionally identical.
     
@@ -215,7 +220,7 @@ User Defaults:
 	// Remove the user default for the specified key.
 	macgap.userDefaults.removeObjectForKey('macgap_mykey');
 
-	// Be notified when the user defaults are changed. To see what was changed, store a local snapshot of the object and compare to it.
+	// Be notified when the user defaults are changed. To see what was changed, store a local snapshot of the object and compare to it. Only items with a key beginning with `macgap_` are returned, although any key may have triggered the event. For example, since the window's x,y position is stored in the User Defaults, this event will fire every time the app window is moved.
 	document.addEventListener('userDefaultsChanged', function(e) {
 		console.log(e.data);
     }, true);

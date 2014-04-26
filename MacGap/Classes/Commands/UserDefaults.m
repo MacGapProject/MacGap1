@@ -40,34 +40,38 @@
 }
 
 - (void)defaultsChanged:(NSNotification *)notification {
-    // Get the user defaults.
-    NSUserDefaults *defaults = (NSUserDefaults *)[notification object];
-    
-    // Get a dictionary of the user defaults.
-    NSDictionary *dict = [defaults dictionaryRepresentation];
-    
-    [JSEventHelper triggerEvent:@"userDefaultsChanged" withArgs:dict forWebView:self.webView];
+    NSDictionary* returnDict = [self myDefaultsDictionary];
+    [JSEventHelper triggerEvent:@"userDefaultsChanged" withArgs:returnDict forWebView:self.webView];
 }
 
-- (NSString*) getUserDefaults {
+- (NSString*) getMyDefaults {
+    NSDictionary* myDefaults = [self myDefaultsDictionary];
+
+    return [[Utils sharedInstance] convertDictionaryToJSON:myDefaults];
+}
+
+- (NSDictionary*) myDefaultsDictionary {
+    NSString* prefix = [kWebScriptNamespace stringByAppendingString:@"_"];
+    NSMutableDictionary* returnDict = [[NSMutableDictionary alloc] init];
+
+    // Get the user defaults.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    // Convert defaults Dictionary to JSON.
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization
-                        dataWithJSONObject:[defaults dictionaryRepresentation]
-                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                        error:&error];
-    
-    NSString *jsonString;
-    if (! jsonData) {
-        NSLog(@"Got an error converting to JSON: %@", error);
-    }
-    else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    // Build up a dictionary containing just the items beginning with our
+    // prefix.
+    for (NSString* key in [self getUserDefaultsKeys]) {
+        if ([key hasPrefix:prefix]) {
+            id val = [defaults valueForKey:key];
+            [returnDict setObject:val forKey:key];
+        }
     }
 
-    return jsonString;
+    return returnDict;
+}
+
+- (NSArray*) getUserDefaultsKeys {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    return [[prefs dictionaryRepresentation] allKeys];
 }
 
 - (void) removeObjectForKey:(NSString*)key {
@@ -165,8 +169,8 @@
 + (NSString*) webScriptNameForSelector:(SEL)selector {
 	id	result = nil;
 	
-	if (selector == @selector(getUserDefaults)) {
-		result = @"getUserDefaults";
+	if (selector == @selector(getMyDefaults)) {
+		result = @"getMyDefaults";
     }
     
 	if (selector == @selector(removeObjectForKey:)) {
