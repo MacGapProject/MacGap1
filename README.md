@@ -2,7 +2,7 @@
 
 The MacGap project provides HTML/JS/CSS developers an Xcode project for developing Native OSX Apps that run in OSX's WebView and take advantage of WebKit technologies.
 
-The project exposes a JavaScript API for OS X integration, such as displaying native OS 9 notifications. The MacGap project is extremely lightweight and nimble; a blank application is about 980KB.
+The project exposes a JavaScript API for OS X integration, such as displaying native OS X 10.9 notifications. The MacGap project is extremely lightweight and nimble; a blank application is about 980KB.
 
 ### Features:
 * tiny compiled app sizes
