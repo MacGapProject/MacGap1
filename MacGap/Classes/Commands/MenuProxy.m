@@ -78,23 +78,38 @@ static BOOL isNullish(id o)
     return NO;
 }
 
-- (MenuItemProxy*)addItemWithTitle:(NSString*)title 
+- (MenuItemProxy*)addItemWithTitle:(NSString*)title
                      keyEquivalent:(NSString*)keyCommand
                           callback:(WebScriptObject*)aCallback
+                           atIndex:(NSInteger)index
 {
     if (isNullish(title))
         title = @"";
-
+    
     NSString *aKey = [MenuProxy getKeyFromString:keyCommand];
-    NSMenuItem *item = [menu addItemWithTitle:title action:nil keyEquivalent:aKey ];
+    NSMenuItem *item = nil;
+    
+    if(index) {
+        item = [menu insertItemWithTitle:title action:nil keyEquivalent:aKey atIndex:index ];
+    } else {
+        item = [menu addItemWithTitle:title action:nil keyEquivalent:aKey ];
+        
+    }
     
     // Set the modifiers.
     NSUInteger modifiers = [MenuProxy getModifiersFromString:keyCommand];
     [item setKeyEquivalentModifierMask:modifiers];
-
+   
+    if(!menu.supermenu) {
+        NSMenu *s = [[NSMenu alloc] initWithTitle:title];
+        [item setSubmenu:s];
+    }
+   
     MenuItemProxy *mip = [MenuItemProxy proxyWithContext:context andMenuItem:item];
     if (!isNullish(aCallback))
         [mip setCallback:aCallback];
+    
+   
     return mip;
 }
 
@@ -157,38 +172,32 @@ static BOOL isNullish(id o)
     return [MenuItemProxy proxyWithContext:context andMenuItem:item];    
 }
 
-/*
-- (id) valueForUndefinedKey:(NSString *)key
+- (MenuProxy*)removeItem:(id)key
 {
-    NSLog(@"valueForUndefinedKey: %@", key);
-    NSScanner *scan = [NSScanner scannerWithString:key];
-    NSInteger index = 0;
-    NSMenuItem *item;
+    if (isNullish(key))
+        return nil;
     
-    if ([scan scanInteger:&index])
-        item = [menu itemAtIndex:index];
-    else
+    NSMenuItem *item = nil;
+    if ([key isKindOfClass:[NSNumber class]])
+    {
+        item = [menu itemAtIndex:[key intValue]];
+    }
+    else if ([key isKindOfClass:[NSString class]])
+    {
         item = [menu itemWithTitle:key];
+        if (!item)
+        {
+            // Try again, with ... appended. e.g. "Save..."
+            item = [menu itemWithTitle:
+                    [key stringByAppendingString:@"\u2026"]];
+        }
+    }
     if (!item)
         return nil;
     
-    return [MenuItemProxy proxyWithContext:context andMenuItem:item];
+    [menu removeItem:item];
+    return [MenuProxy proxyWithContext:context andMenu:menu];
 }
-
-- (id)invokeUndefinedMethodFromWebScript:(NSString *)name withArguments:(NSArray *)args
-{
-    NSLog(@"invokeUndefinedMethodFromWebScript: %@", name);
-    // There is something magical about this method.  It must be used by
-    // JavaScriptCore to detect if you're doing dynamic processing.  It must be here,
-    // but is never called for undefined properties.
-    return nil;
-}
-
-+ (BOOL)isKeyExcludedFromWebScript:(const char *)name
-{
-    return NO;
-}
-*/
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
 {
@@ -203,8 +212,8 @@ static BOOL isNullish(id o)
 + (NSString*) webScriptNameForSelector:(SEL)selector
 {
 	id	result = nil;
-
-    if (selector == @selector(addItemWithTitle:keyEquivalent:callback:)) {
+   
+    if (selector == @selector(addItemWithTitle:keyEquivalent:callback:atIndex:)) {
 		result = @"addItem";
 	}
     else if (selector == @selector(addSeparator)) {
@@ -213,8 +222,12 @@ static BOOL isNullish(id o)
 	else if (selector == @selector(itemForKey:)) {
 		result = @"getItem";
 	}
-	
+    else if (selector == @selector(removeItem:)) {
+		result = @"removeMenu";
+	}
+   
 	return result;
 }
+
 
 @end
