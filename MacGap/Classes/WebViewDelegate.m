@@ -40,7 +40,7 @@
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
     JSContextRef context = [frame globalContext];
-	if (self.sound == nil) { self.sound = [Sound new]; }
+    if (self.sound == nil) { self.sound = [[Sound alloc] initWithContext:context]; }
 	if (self.dock == nil) { self.dock = [Dock new]; }
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.notice == nil && [Notice available] == YES) { self.notice = [Notice new]; }

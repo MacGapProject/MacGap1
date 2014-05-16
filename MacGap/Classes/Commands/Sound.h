@@ -1,11 +1,17 @@
 #import <Cocoa/Cocoa.h>
+#import "Command.h"
+#import "CallbackDelegate.h"
 
 
-@interface Sound : NSObject {
+@interface Sound : Command {
 
 }
 
-- (void) play:(NSString*)file;
-- (void) playSystem:(NSString*)name;
+// pending callbacks for sounds being played, to keep
+// ARC from freeing them too early
+@property (nonatomic, strong) NSMutableSet *pending;
+
+- (void) play:(NSString*)file onComplete:(WebScriptObject*)callback;
+- (void) playSystem:(NSString*)name onComplete:(WebScriptObject*)callback;
 
 @end
