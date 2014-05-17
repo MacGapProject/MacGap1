@@ -16,11 +16,14 @@
 
 + (MenuProxy*)proxyWithContext:(JSContextRef)aContext andMenu:(NSMenu*)aMenu;
 
-- (MenuItemProxy*)addItemWithTitle:(NSString*)title 
+- (MenuItemProxy*)addItemWithTitle:(NSString*)title
                      keyEquivalent:(NSString*)aKey
-                          callback:(WebScriptObject*)aCallback;
+                          callback:(WebScriptObject*)aCallback
+                           atIndex:(NSInteger)index;
+
 - (MenuItemProxy*)addSeparator;
 - (MenuItemProxy*)itemForKey:(id)key;
+- (MenuProxy*)removeItem:(id)key;
 
 + (NSString*)getKeyFromString:(NSString*)keyCommand;
 + (NSUInteger*)getModifiersFromString:(NSString*)keyCommand;

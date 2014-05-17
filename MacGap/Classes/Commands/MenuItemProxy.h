@@ -21,9 +21,11 @@
 - (MenuProxy*)addSubmenu;
 
 - (void) remove;
-- (void)setCallback:(WebScriptObject*)aCallback;
-- (void)setKey:(NSString*)keyCommand;
+- (void) setCallback:(WebScriptObject*)aCallback;
+- (void) setKey:(NSString*)keyCommand;
 - (void) setTitle:(NSString*)title;
+- (void) enable;
+- (void) disable;
 - (MenuProxy*)submenu;
 
 @end

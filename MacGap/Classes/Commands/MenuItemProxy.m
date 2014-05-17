@@ -93,6 +93,16 @@
     return [MenuProxy proxyWithContext:context andMenu:s];
 }
 
+- (void) enable
+{
+    [item setEnabled:YES];
+}
+
+- (void) disable
+{
+    [item setEnabled:NO];
+}
+
 #pragma mark WebScripting protocol
 
 + (BOOL) isSelectorExcludedFromWebScript:(SEL)selector
@@ -126,6 +136,12 @@
 	}
 	else if (selector == @selector(submenu)) {
 		result = @"submenu";
+	}
+    else if (selector == @selector(enable)) {
+		result = @"enable";
+	}
+    else if (selector == @selector(disable)) {
+		result = @"disable";
 	}
 	
 	return result;
