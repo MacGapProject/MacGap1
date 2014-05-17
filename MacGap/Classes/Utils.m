@@ -1,4 +1,5 @@
 #import "Utils.h"
+#import <Webkit/WebScriptObject.h>
 
 static Utils* sharedInstance = nil;
 
@@ -45,6 +46,20 @@ static Utils* sharedInstance = nil;
     return jsonString;
 }
 
+// Convert JavaScript array (arrives as a WebScriptObject) into an NSArray of strings.
+- (NSArray*) convertJSarrayToNSArray:(WebScriptObject*)jsArray {
+    NSInteger count = [[jsArray valueForKey:@"length"] integerValue];
+    
+    NSMutableArray *args = [NSMutableArray array];
+    for (int i = 0; i < count; i++) {
+        NSString *item = [jsArray webScriptValueAtIndex:i];
+        if ([item isKindOfClass:[NSString class]]) {
+            [args addObject:item];
+        }
+    }
+    
+    return args;
+}
 
 #pragma mark -
 #pragma mark Singleton methods
