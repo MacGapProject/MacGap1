@@ -8,6 +8,10 @@
 #import "Window.h"
 #import "WindowController.h"
 #import "Clipboard.h"
+#import "Fonts.h"
+#import "MenuProxy.h"
+#import "UserDefaults.h"
+
 @implementation WebViewDelegate
 
 @synthesize sound;
@@ -19,14 +23,29 @@
 @synthesize window;
 @synthesize requestedWindow;
 @synthesize clipboard;
+@synthesize fonts;
+@synthesize menu;
+@synthesize userDefaults;
+
+- (id) initWithMenu:(NSMenu*)aMenu
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    mainMenu = aMenu;
+    return self;
+}
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
-	if (self.sound == nil) { self.sound = [Sound new]; }
+    JSContextRef context = [frame globalContext];
+    if (self.sound == nil) { self.sound = [[Sound alloc] initWithContext:context]; }
 	if (self.dock == nil) { self.dock = [Dock new]; }
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.path == nil) { self.path = [Path new]; }
 	if (self.clipboard == nil) { self.clipboard = [Clipboard new]; }
+	if (self.fonts == nil) { self.fonts = [Fonts new]; }
 
     if (self.notice == nil && [Notice available] == YES) {
        self.notice = [[Notice alloc] initWithWebView:webView];
@@ -38,6 +57,14 @@
     
     if (self.window == nil) { 
         self.window = [[Window alloc] initWithWebView:webView]; 
+    }
+    
+    if (self.menu == nil) {
+        self.menu = [MenuProxy proxyWithContext:context andMenu:mainMenu];
+    }
+    
+	if (self.userDefaults == nil) {
+        self.userDefaults = [[UserDefaults alloc] initWithWebView:webView];
     }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];

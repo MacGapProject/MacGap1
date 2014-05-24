@@ -16,5 +16,6 @@
 - (void) unhide;
 - (void) beep;
 - (void) bounce;
-
+- (void) setCustomUserAgent:(NSString *)userAgentString;
+- (NSNumber*) systemIdleTime;
 @end
