@@ -17,4 +17,6 @@
 + (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forWebView:(WebView *)webView;
 + (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forObject:(NSString *)objName forWebView:(WebView *)webView;
 
++ (void) triggerEvent:(NSString *) event withExtraJS: (NSString *) extraJS forWebView: (WebView *) webView;
+
 @end

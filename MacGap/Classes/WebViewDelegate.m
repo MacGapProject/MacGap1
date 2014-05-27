@@ -123,6 +123,7 @@
     [openDlg beginWithCompletionHandler:^(NSInteger result){
         if (result == NSFileHandlingPanelOKButton) {
             NSArray * files = [[openDlg URLs] valueForKey: @"relativePath"];
+            self.file.selectedFiles = files;
             [resultListener chooseFilenames: files];
         } else {
             [resultListener cancel];

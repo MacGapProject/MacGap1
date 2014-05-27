@@ -38,4 +38,9 @@
     [webView stringByEvaluatingJavaScriptFromString:str];
 }
 
++ (void) triggerEvent:(NSString *) event withExtraJS: (NSString *) extraJS forWebView: (WebView *) webView{
+    NSString * str = [NSString stringWithFormat:@"var e = document.createEvent('Events'); e.initEvent('%@', true, false); %@; document.dispatchEvent(e); ", event, extraJS];
+    [webView stringByEvaluatingJavaScriptFromString:str];
+}
+
 @end
