@@ -8,9 +8,8 @@
 	WebViewDelegate* delegate;
 }
 
-- (void) triggerEvent:(NSString *)type;
-
 @property (retain) WebView* webView;
 @property (retain) WebViewDelegate* delegate;
+@property (strong) IBOutlet NSMenu *mainMenu;
 
 @end

@@ -14,13 +14,39 @@
 
 - (void) open:(NSDictionary *)properties
 {
-    double width  = [[properties valueForKey:@"width"] doubleValue];
-    double height =  [[properties valueForKey:@"height"] doubleValue];
-    
-    NSRect frame = NSMakeRect(0, 0, width, height);
-    self.windowController = [[WindowController alloc] initWithURL:[properties valueForKey:@"url"] andFrame:frame];
+    self.windowController = [[WindowController alloc] initWithURL:[properties valueForKey:@"url"]];
     [self.windowController showWindow: [NSApplication sharedApplication].delegate];
     [self.windowController.window makeKeyWindow];
+}
+
+- (void) minimize {
+    [[NSApp mainWindow] miniaturize:[NSApp mainWindow]];
+}
+
+- (void) toggleFullscreen {
+    [[NSApp mainWindow] toggleFullScreen:[NSApp mainWindow]];
+}
+
+- (void) maximize {
+    CGRect a = [NSApp mainWindow].frame;
+    _oldRestoreFrame = CGRectMake(a.origin.x, a.origin.y, a.size.width, a.size.height);
+    [[NSApp mainWindow] setFrame:[[NSScreen mainScreen] visibleFrame] display:YES];
+}
+
+- (Boolean) isMaximized {
+    NSRect a = [NSApp mainWindow].frame;
+    NSRect b = [[NSScreen mainScreen] visibleFrame];
+    return a.origin.x == b.origin.x && a.origin.y == b.origin.y && a.size.width == b.size.width && a.size.height == b.size.height;
+}
+
+- (CGFloat) getX {
+    NSRect frame = [self.webView window].frame;
+    return frame.origin.x;
+}
+
+- (CGFloat) getY {
+    NSRect frame = [self.webView window].frame;
+    return frame.origin.y;
 }
 
 - (void) move:(NSDictionary *)properties

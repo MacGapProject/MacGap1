@@ -2,11 +2,17 @@
 #import "Sound.h"
 #import "Dock.h"
 #import "Growl.h"
+#import "Notice.h"
 #import "Path.h"
 #import "App.h"
 #import "Window.h"
 #import "File.h"
 #import "WindowController.h"
+#import "Clipboard.h"
+#import "Fonts.h"
+#import "MenuProxy.h"
+#import "UserDefaults.h"
+
 
 #define MUTABLE_ARRAY_START_SIZE 10
 
@@ -15,18 +21,40 @@
 @synthesize sound;
 @synthesize dock;
 @synthesize growl;
+@synthesize notice;
 @synthesize path;
 @synthesize app;
 @synthesize window;
 @synthesize file;
 @synthesize requestedWindow;
+@synthesize clipboard;
+@synthesize fonts;
+@synthesize menu;
+@synthesize userDefaults;
+
+- (id) initWithMenu:(NSMenu*)aMenu
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    mainMenu = aMenu;
+    return self;
+}
 
 - (void) webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowScriptObject forFrame:(WebFrame *)frame
 {
-	if (self.sound == nil) { self.sound = [Sound new]; }
+    JSContextRef context = [frame globalContext];
+    if (self.sound == nil) { self.sound = [[Sound alloc] initWithContext:context]; }
 	if (self.dock == nil) { self.dock = [Dock new]; }
 	if (self.growl == nil) { self.growl = [Growl new]; }
 	if (self.path == nil) { self.path = [Path new]; }
+	if (self.clipboard == nil) { self.clipboard = [Clipboard new]; }
+	if (self.fonts == nil) { self.fonts = [Fonts new]; }
+
+    if (self.notice == nil && [Notice available] == YES) {
+       self.notice = [[Notice alloc] initWithWebView:webView];
+    }
 	
     if (self.app == nil) { 
         self.app = [[App alloc] initWithWebView:webView]; 
@@ -37,6 +65,14 @@
     }
     if (self.file == nil) {
         self.file = [[File alloc] initWithWebView:webView];
+    }
+    
+    if (self.menu == nil) {
+        self.menu = [MenuProxy proxyWithContext:context andMenu:mainMenu];
+    }
+    
+	if (self.userDefaults == nil) {
+        self.userDefaults = [[UserDefaults alloc] initWithWebView:webView];
     }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
@@ -85,9 +121,12 @@
     [openDlg setAllowsMultipleSelection:allowMultipleFiles];
     
     [openDlg beginWithCompletionHandler:^(NSInteger result){
-        NSArray * files = [[openDlg URLs] valueForKey: @"relativePath"];
-        self.file.selectedFiles = files;
-        [resultListener chooseFilenames: files]  ;
+        if (result == NSFileHandlingPanelOKButton) {
+            NSArray * files = [[openDlg URLs] valueForKey: @"relativePath"];
+            [resultListener chooseFilenames: files];
+        } else {
+            [resultListener cancel];
+        }
     }];
 }
 
@@ -112,6 +151,20 @@
     [alert runModal];
 }
 
+- (BOOL)webView:(WebView *)sender runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    [alert setMessageText:message];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    if ([alert runModal] == NSAlertFirstButtonReturn)
+        return YES;
+    else
+        return NO;
+}
+
 /*
  By default the size of a database is set to 0 [1]. When a database is being created
  it calls this delegate method to get an increase in quota size - or call an error.
@@ -128,7 +181,7 @@
     if ([origin respondsToSelector: @selector(setQuota:)]) {
         [origin performSelector:@selector(setQuota:) withObject:[NSNumber numberWithLongLong: defaultQuota]];
     } else { 
-        NSLog(@"could not increase quota for %@", defaultQuota); 
+        NSLog(@"could not increase quota for %lld", defaultQuota); 
     }
 }
 

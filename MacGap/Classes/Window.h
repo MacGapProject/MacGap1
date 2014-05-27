@@ -3,7 +3,7 @@
 #import "WindowController.h"
 
 @interface Window : NSObject{
-    
+    CGRect _oldRestoreFrame;
 }
 
 @property (retain, nonatomic) WindowController *windowController;
@@ -13,5 +13,11 @@
 - (void) open:(NSDictionary *)properties;
 - (void) move:(NSDictionary *)properties;
 - (void) resize:(NSDictionary *) properties;
+- (Boolean) isMaximized;
+- (CGFloat) getX;
+- (CGFloat) getY;
+- (void) maximize;
+- (void) restore;
+- (void) toggleFullscreen;
 
 @end

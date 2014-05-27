@@ -10,16 +10,32 @@
 
 @implementation JSEventHelper
 
++ (void) triggerEvent:(NSString *)event forWebView:(WebView *)webView {
+    [self triggerEvent:event withArgs:[NSMutableDictionary dictionary] forObject:@"document" forWebView:webView];
+}
 
-+ (void) triggerEvent:(NSString *) event withExtraJS: (NSString *) extraJS forWebView: (WebView *) webView{
-    NSString * str = [NSString stringWithFormat:@"var e = document.createEvent('Events'); e.initEvent('%@', true, false); %@; document.dispatchEvent(e); ", event, extraJS];
++ (void) triggerEvent:(NSString *)event withArgs:(NSDictionary *)args forWebView:(WebView *)webView {
+    [self triggerEvent:event withArgs:args forObject:@"document" forWebView:webView];
+}
+
++ (void) triggerEvent:(NSString *)event withArgs:(NSDictionary *)args forObject:(NSString *)objName forWebView:(WebView *)webView {
+    
+    // Convert args Dictionary to JSON.
+    NSString* jsonString = [[Utils sharedInstance] convertDictionaryToJSON:args];
+    
+    // Create the event JavaScript and run it.
+    NSString * str = [NSString stringWithFormat:@"var e = document.createEvent('Events'); e.initEvent('%@', true, false);  e.data=%@; %@.dispatchEvent(e); ", event, jsonString, objName];
     [webView stringByEvaluatingJavaScriptFromString:str];
 }
 
-+ (void) triggerEvent:(NSString *) event forWebView: (WebView *) webView{
-    [JSEventHelper triggerEvent:event withExtraJS:@"" forWebView:webView];
++ (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forWebView:(WebView *)webView {
+    [self triggerEvent:event forDetail:detail forObject:@"document" forWebView:webView];
 }
 
-
++ (void) triggerEvent:(NSString *)event forDetail:(NSString *)detail forObject:(NSString *)objName forWebView:(WebView *)webView {
+    NSString *detailEscaped = [detail stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    NSString *str = [NSString stringWithFormat:@"var e = new CustomEvent('%@', { 'detail': decodeURIComponent(\"%@\") }); %@.dispatchEvent(e); ", event, detailEscaped, objName];
+    [webView stringByEvaluatingJavaScriptFromString:str];
+}
 
 @end
