@@ -26,6 +26,16 @@
   
   <script type="text/javascript" charset="utf-8">
       macgap.notice.notify({title: 'MacGap', content: 'Hello World'});
+      
+      // Show the status bar by providing an image name or a title. The image name should be that of an image asset bundled with the application.
+      //macgap.statusBar.showWithImageName('IMAGE_NAME');
+      macgap.statusBar.showWithTitle('MacGap');
+      
+      // Or set the image name or title manually and show the status bar.
+      // macgap.statusBar.title = 'MacGap';
+      // macgap.statusBar.show();
+      
+      macgap.statusBar.statusMenu.getItem(2).setCallback(function () { macgap.statusBar.hide(); });
   </script>
   
   <h1>MacGap</h1>
