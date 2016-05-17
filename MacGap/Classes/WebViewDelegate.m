@@ -11,6 +11,7 @@
 #import "Fonts.h"
 #import "MenuProxy.h"
 #import "UserDefaults.h"
+#import "StatusBar.h"
 
 @implementation WebViewDelegate
 
@@ -26,6 +27,7 @@
 @synthesize fonts;
 @synthesize menu;
 @synthesize userDefaults;
+@synthesize statusBar;
 
 - (id) initWithMenu:(NSMenu*)aMenu
 {
@@ -65,6 +67,10 @@
     
 	if (self.userDefaults == nil) {
         self.userDefaults = [[UserDefaults alloc] initWithWebView:webView];
+    }
+    
+    if (self.statusBar == nil) {
+        self.statusBar = [[StatusBar alloc] initWithContext:context];
     }
     
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];

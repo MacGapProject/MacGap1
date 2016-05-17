@@ -12,6 +12,7 @@
 @class Fonts;
 @class MenuProxy;
 @class UserDefaults;
+@class StatusBar;
 
 @class WindowController;
 
@@ -27,6 +28,7 @@
     Fonts* fonts;
     NSMenu *mainMenu;
     UserDefaults* userDefaults;
+    StatusBar* statusBar;
 }
 
 
@@ -42,6 +44,7 @@
 @property (nonatomic, retain) Fonts* fonts;
 @property (nonatomic, retain) MenuProxy* menu;
 @property (nonatomic, retain) UserDefaults* userDefaults;
+@property (nonatomic, retain) StatusBar* statusBar;
 
 @property (nonatomic, retain) WindowController *requestedWindow;
 
